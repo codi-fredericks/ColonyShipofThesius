@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Colony of Thesius"
+config/name="Colony of Theseus"
 run/main_scene="uid://e10cthxf2bhx"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://v5edp3s45ojl"
@@ -20,6 +20,8 @@ config/icon="uid://v5edp3s45ojl"
 Constants="*res://scripts/constants.gd"
 NodeFinder="*res://scripts/services/node_finder.gd"
 SfxService="*res://scripts/services/SFXService/SFXService.gd"
+RngService="*res://scripts/services/rng_service.gd"
+ShakeService="*res://scripts/services/ShakeService/shake_service.gd"
 
 [display]
 
@@ -31,8 +33,10 @@ window/stretch/scale_mode="integer"
 [global_group]
 
 game=""
+camera=""
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

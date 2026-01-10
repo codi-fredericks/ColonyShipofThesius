@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://e10cthxf2bhx"]
+[gd_scene load_steps=6 format=3 uid="uid://e10cthxf2bhx"]
 
 [ext_resource type="PackedScene" uid="uid://cwk4vn2lpchjv" path="res://scenes/event/event.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://27ibbn5l7kbf" path="res://game.gd" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://boptoolihburo" path="res://scripts/services/ShakeService/screen_shaker.gd" id="4_fc0e3"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e2o6t"]
 size = Vector2(200, 175)
@@ -9,20 +10,23 @@ size = Vector2(200, 175)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_feb5d"]
 size = Vector2(50, 140)
 
-[node name="Game" type="Control" groups=["game"]]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_e2o6t")
+[node name="WindowRoot" type="Node2D"]
 
-[node name="OuterMargin" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="Game" type="Node2D" parent="." node_paths=PackedStringArray("screen_shaker", "control_root") groups=["game"]]
+position = Vector2(480, 270)
+script = ExtResource("1_e2o6t")
+screen_shaker = NodePath("ScreenShaker")
+control_root = NodePath("OuterMargin")
+
+[node name="OuterMargin" type="MarginContainer" parent="Game"]
+custom_minimum_size = Vector2(960, 540)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 4
@@ -30,93 +34,98 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="Contents" type="VBoxContainer" parent="OuterMargin"]
+[node name="Contents" type="VBoxContainer" parent="Game/OuterMargin"]
 layout_mode = 2
 
-[node name="Event" parent="OuterMargin/Contents" instance=ExtResource("1_80nbo")]
+[node name="Event" parent="Game/OuterMargin/Contents" instance=ExtResource("1_80nbo")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="UIContainer" type="HBoxContainer" parent="OuterMargin/Contents"]
+[node name="UIContainer" type="HBoxContainer" parent="Game/OuterMargin/Contents"]
 custom_minimum_size = Vector2(0, 175)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="Ship" type="TextureRect" parent="OuterMargin/Contents/UIContainer"]
+[node name="Ship" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 texture = SubResource("PlaceholderTexture2D_e2o6t")
 stretch_mode = 2
 
-[node name="Status" type="VBoxContainer" parent="OuterMargin/Contents/UIContainer"]
+[node name="Status" type="VBoxContainer" parent="Game/OuterMargin/Contents/UIContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="StarChart" type="HBoxContainer" parent="OuterMargin/Contents/UIContainer/Status"]
+[node name="StarChart" type="HBoxContainer" parent="Game/OuterMargin/Contents/UIContainer/Status"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="TextureRect" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
 layout_mode = 2
 size_flags_horizontal = 0
 texture = SubResource("PlaceholderTexture2D_feb5d")
 stretch_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="TextureRect2" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
 layout_mode = 2
 size_flags_horizontal = 6
 texture = SubResource("PlaceholderTexture2D_feb5d")
 stretch_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="TextureRect3" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
 layout_mode = 2
 size_flags_horizontal = 6
 texture = SubResource("PlaceholderTexture2D_feb5d")
 stretch_mode = 2
 
-[node name="TextureRect4" type="TextureRect" parent="OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="TextureRect4" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
 layout_mode = 2
 size_flags_horizontal = 6
 texture = SubResource("PlaceholderTexture2D_feb5d")
 stretch_mode = 2
 
-[node name="TextureRect5" type="TextureRect" parent="OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="TextureRect5" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
 layout_mode = 2
 size_flags_horizontal = 6
 texture = SubResource("PlaceholderTexture2D_feb5d")
 stretch_mode = 2
 
-[node name="TextureRect6" type="TextureRect" parent="OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="TextureRect6" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
 layout_mode = 2
 size_flags_horizontal = 6
 texture = SubResource("PlaceholderTexture2D_feb5d")
 stretch_mode = 2
 
-[node name="TextureRect7" type="TextureRect" parent="OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="TextureRect7" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
 layout_mode = 2
 size_flags_horizontal = 6
 texture = SubResource("PlaceholderTexture2D_feb5d")
 stretch_mode = 2
 
-[node name="TextureRect8" type="TextureRect" parent="OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="TextureRect8" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
 layout_mode = 2
 size_flags_horizontal = 6
 texture = SubResource("PlaceholderTexture2D_feb5d")
 stretch_mode = 2
 
-[node name="TextureRect9" type="TextureRect" parent="OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="TextureRect9" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
 layout_mode = 2
 size_flags_horizontal = 6
 texture = SubResource("PlaceholderTexture2D_feb5d")
 stretch_mode = 2
 
-[node name="TextureRect10" type="TextureRect" parent="OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="TextureRect10" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
 layout_mode = 2
 size_flags_horizontal = 8
 texture = SubResource("PlaceholderTexture2D_feb5d")
 stretch_mode = 2
 
-[node name="Stats" type="Label" parent="OuterMargin/Contents/UIContainer/Status"]
+[node name="Stats" type="Label" parent="Game/OuterMargin/Contents/UIContainer/Status"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "SENS [||||]  SHLD [||||]  WPNS [||||]  RFIN [||||]  NAVI [||||]  SCIN [||||]"
+text = "SENS [/]  SHLD [/]  WPNS [/]  RFIN [/]  NAVI [/]  SCIN [/]"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScreenShaker" type="Camera2D" parent="Game" node_paths=PackedStringArray("target") groups=["camera"]]
+script = ExtResource("4_fc0e3")
+target = NodePath("..")
