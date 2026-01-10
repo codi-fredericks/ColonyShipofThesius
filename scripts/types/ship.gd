@@ -12,7 +12,7 @@ var _sensors_orig: bool = true
 var _shields_orig: bool = true
 var _weapons_orig: bool = true
 var _refinery_orig: bool = true
-var _navigation_orig: bool = true
+var _engines_orig: bool = true
 var _science_orig: bool = true
 @warning_ignore_restore("unused_private_class_variable")
 
@@ -23,7 +23,7 @@ static func new_ship() -> Ship:
 	this_ship._shields = 2
 	this_ship._weapons = 2
 	this_ship._refinery = 2
-	this_ship._navigation = 2
+	this_ship._engines = 2
 	this_ship._science = 2
 
 	return(this_ship)

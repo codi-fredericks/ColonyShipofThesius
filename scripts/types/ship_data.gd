@@ -6,7 +6,7 @@ extends Resource
 @export var _shields: int = 0
 @export var _weapons: int = 0
 @export var _refinery: int = 0
-@export var _navigation: int = 0
+@export var _engines: int = 0
 @export var _science: int = 0
 @warning_ignore_restore("unused_private_class_variable")
 

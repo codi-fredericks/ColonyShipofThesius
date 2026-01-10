@@ -1,11 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://e10cthxf2bhx"]
+[gd_scene load_steps=7 format=3 uid="uid://e10cthxf2bhx"]
 
 [ext_resource type="PackedScene" uid="uid://cwk4vn2lpchjv" path="res://scenes/event/event.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://27ibbn5l7kbf" path="res://game.gd" id="1_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://cas6js8sytpq" path="res://scenes/ship_view.tscn" id="3_fc0e3"]
+[ext_resource type="Theme" uid="uid://xejno4b30eo0" path="res://resources/theme.tres" id="4_7jktm"]
 [ext_resource type="Script" uid="uid://boptoolihburo" path="res://scripts/services/ShakeService/screen_shaker.gd" id="4_fc0e3"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e2o6t"]
-size = Vector2(200, 175)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_feb5d"]
 size = Vector2(50, 140)
@@ -46,11 +45,8 @@ custom_minimum_size = Vector2(0, 175)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="Ship" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer"]
+[node name="ShipView" parent="Game/OuterMargin/Contents/UIContainer" instance=ExtResource("3_fc0e3")]
 layout_mode = 2
-size_flags_vertical = 4
-texture = SubResource("PlaceholderTexture2D_e2o6t")
-stretch_mode = 2
 
 [node name="Status" type="VBoxContainer" parent="Game/OuterMargin/Contents/UIContainer"]
 layout_mode = 2
@@ -122,7 +118,8 @@ stretch_mode = 2
 [node name="Stats" type="Label" parent="Game/OuterMargin/Contents/UIContainer/Status"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "SENS [/]  SHLD [/]  WPNS [/]  RFIN [/]  NAVI [/]  SCIN [/]"
+theme = ExtResource("4_7jktm")
+text = "SENS [/]  SHLD [/]  WPNS [/]  RFIN [/]  ENGN [/]  SCIN [/]"
 horizontal_alignment = 1
 vertical_alignment = 1
 

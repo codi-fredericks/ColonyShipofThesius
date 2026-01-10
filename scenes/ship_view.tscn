@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://cas6js8sytpq"]
+
+[ext_resource type="Texture2D" uid="uid://b66r4xck0uxdj" path="res://assets/gfx/ship_parts/engines.png" id="1_gyd2t"]
+[ext_resource type="Script" uid="uid://d0h16euc146bn" path="res://scenes/ship_view.gd" id="1_ifada"]
+[ext_resource type="Texture2D" uid="uid://3ecde5vhifep" path="res://assets/gfx/ship_parts/navigation.png" id="2_ifada"]
+[ext_resource type="Texture2D" uid="uid://cwg2t61mrpdlt" path="res://assets/gfx/ship_parts/refinery.png" id="3_u02qh"]
+[ext_resource type="Texture2D" uid="uid://del25my31ixxq" path="res://assets/gfx/ship_parts/Sci.png" id="4_e0d3o"]
+[ext_resource type="Texture2D" uid="uid://cvi6wsrhm4i8o" path="res://assets/gfx/ship_parts/shields.png" id="5_75yju"]
+[ext_resource type="Texture2D" uid="uid://dlstbgnigoveg" path="res://assets/gfx/ship_parts/weapons.png" id="6_jlqx1"]
+
+[node name="ShipView" type="CenterContainer" node_paths=PackedStringArray("engines", "sensors", "refinery", "science", "shields", "weapons")]
+size_flags_vertical = 4
+script = ExtResource("1_ifada")
+engines = NodePath("Engines")
+sensors = NodePath("Sensors")
+refinery = NodePath("Refinery")
+science = NodePath("Science")
+shields = NodePath("Shields")
+weapons = NodePath("Weapons")
+
+[node name="Engines" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_gyd2t")
+
+[node name="Sensors" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_ifada")
+
+[node name="Refinery" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_u02qh")
+
+[node name="Science" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("4_e0d3o")
+
+[node name="Shields" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("5_75yju")
+
+[node name="Weapons" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("6_jlqx1")

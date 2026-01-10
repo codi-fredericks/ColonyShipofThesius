@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6hi5xg067hen" path="res://scripts/services/SFXService/SfxData.gd" id="1_qr3e3"]
 [ext_resource type="Script" uid="uid://b1jgdfewgyjk0" path="res://scripts/services/SFXService/SfxLib.gd" id="2_i1gyi"]
-[ext_resource type="AudioStream" uid="uid://cp51jasnhhli7" path="res://sfx/explosion.wav" id="2_vkf5m"]
+[ext_resource type="AudioStream" uid="uid://cp51jasnhhli7" path="res://assets/sfx/explosion.wav" id="2_vkf5m"]
 
 [sub_resource type="Resource" id="Resource_u3agq"]
 script = ExtResource("1_qr3e3")

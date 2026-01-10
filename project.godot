@@ -22,6 +22,7 @@ NodeFinder="*res://scripts/services/node_finder.gd"
 SfxService="*res://scripts/services/SFXService/SFXService.gd"
 RngService="*res://scripts/services/rng_service.gd"
 ShakeService="*res://scripts/services/ShakeService/shake_service.gd"
+ColorManager="*res://scripts/services/color_manager.gd"
 
 [display]
 
