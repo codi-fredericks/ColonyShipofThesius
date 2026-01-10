@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwk4vn2lpchjv"]
+
+[ext_resource type="Script" uid="uid://bcihqyyrqg6jy" path="res://ColonyShipofThesius/new_script.gd" id="1_wtcfe"]
+[ext_resource type="Resource" uid="uid://cg5dtdqxqppl4" path="res://ColonyShipofThesius/Events/event01.tres" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://ColonyShipofThesius/event.gd" id="2_0hol4"]
+[ext_resource type="Resource" uid="uid://h082u4yiglwr" path="res://ColonyShipofThesius/Events/event02.tres" id="4_q6r6c"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y32ns"]
+
+[node name="MockUpUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wtcfe")
+event_table = Array[ExtResource("2_0hol4")]([ExtResource("2_0e48y"), ExtResource("4_q6r6c")])
+current_event = ExtResource("2_0e48y")
+
+[node name="Event_Prompt" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. "
+autowrap_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Event_Picture" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 564.0
+offset_bottom = 309.0
+texture = SubResource("PlaceholderTexture2D_y32ns")
+
+[node name="Part_Status" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 4.0
+offset_right = 732.0
+offset_bottom = 311.0
+
+[node name="Part" type="Label" parent="Part_Status"]
+layout_mode = 2
+text = "Part Status: Nominal"
+
+[node name="Part2" type="Label" parent="Part_Status"]
+layout_mode = 2
+text = "Part Status: Nominal"
+
+[node name="Part3" type="Label" parent="Part_Status"]
+layout_mode = 2
+text = "Part Status: Nominal"
+
+[node name="Part4" type="Label" parent="Part_Status"]
+layout_mode = 2
+text = "Part Status: Nominal"
+
+[node name="Part5" type="Label" parent="Part_Status"]
+layout_mode = 2
+text = "Part Status: Nominal"
+
+[node name="Part6" type="Label" parent="Part_Status"]
+layout_mode = 2
+text = "Part Status: Nominal"
+
+[node name="Event?" type="Node2D" parent="."]
