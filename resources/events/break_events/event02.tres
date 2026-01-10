@@ -10,13 +10,12 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_ogj5s"]
 script = ExtResource("2_6ffwn")
-_sensors = 1
-_navigation = 1
+_science = 3
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_8wlp0"]
 script = ExtResource("1_8wlp0")
-text = "Suck a dick about it"
+text = "We can fabricate a new one in SCIN"
 requirements = SubResource("Resource_ogj5s")
 effect = SubResource("Resource_b06xb")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
@@ -33,13 +32,15 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_17w0v"]
 script = ExtResource("1_8wlp0")
-text = "Punch a dick about it"
+text = "Repurpose the Targeting Array in WPNS"
+sfx = &"expoosion"
 requirements = SubResource("Resource_cxuiu")
 effect = SubResource("Resource_qy0qr")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [sub_resource type="Resource" id="Resource_d58tw"]
 script = ExtResource("2_6ffwn")
+_sensors = -1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_nfsbk"]
@@ -49,14 +50,15 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_6ffwn"]
 script = ExtResource("1_8wlp0")
-text = "Aw, dick I can't do anything"
+text = "Accept Losses "
+sfx = &"explosion"
 requirements = SubResource("Resource_nfsbk")
 effect = SubResource("Resource_d58tw")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_17w0v")
-prompt = "Some other horrible thing happened"
+prompt = "The Sensor Array has encountered an unrecoverable error, if we repurpose the targeting array from weapons we should be able to repair it"
 sfx = &"explosion"
 screen_shake = true
 options = Array[ExtResource("1_8wlp0")]([SubResource("Resource_8wlp0"), SubResource("Resource_17w0v"), SubResource("Resource_6ffwn")])

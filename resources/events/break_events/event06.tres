@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="Event" load_steps=13 format=3 uid="uid://3cpb43had8ri"]
+
+[ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_5h7rv"]
+[ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="2_dcntl"]
+[ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_qchmg"]
+
+[sub_resource type="Resource" id="Resource_hstr0"]
+script = ExtResource("2_dcntl")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_ayo3x"]
+script = ExtResource("2_dcntl")
+_sensors = 3
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_8ot6j"]
+script = ExtResource("1_5h7rv")
+text = "Our Upgraded Sensors pick up replacement materials nearby"
+requirements = SubResource("Resource_ayo3x")
+effect = SubResource("Resource_hstr0")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[sub_resource type="Resource" id="Resource_w8iw6"]
+script = ExtResource("2_dcntl")
+_refinery = -1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_tsvi7"]
+script = ExtResource("2_dcntl")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_viyev"]
+script = ExtResource("1_5h7rv")
+text = "Repurpose Parts from the Refinery to render repairs"
+sfx = &"explosion"
+screen_shake = true
+requirements = SubResource("Resource_tsvi7")
+effect = SubResource("Resource_w8iw6")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[sub_resource type="Resource" id="Resource_06mjb"]
+script = ExtResource("2_dcntl")
+_science = -2
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_nqn6n"]
+script = ExtResource("2_dcntl")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_avvo5"]
+script = ExtResource("1_5h7rv")
+text = "Cordon off the Sci Lab for now"
+sfx = &"explosion"
+screen_shake = true
+requirements = SubResource("Resource_nqn6n")
+effect = SubResource("Resource_06mjb")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[resource]
+script = ExtResource("2_qchmg")
+prompt = "There has been a lab accident while we were researching new fuels, the Science Lab has been damaged badly but we should be able to render repair
+"
+sfx = &"explosion"
+screen_shake = true
+options = Array[ExtResource("1_5h7rv")]([SubResource("Resource_8ot6j"), SubResource("Resource_viyev"), SubResource("Resource_avvo5")])
+metadata/_custom_type_script = "uid://dg3vktrd0ncvi"
