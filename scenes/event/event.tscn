@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwk4vn2lpchjv"]
+[gd_scene load_steps=4 format=3 uid="uid://cwk4vn2lpchjv"]
 
 [ext_resource type="Script" uid="uid://bcihqyyrqg6jy" path="res://scenes/event/event_scene.gd" id="1_jtw3a"]
+[ext_resource type="Theme" uid="uid://xejno4b30eo0" path="res://resources/theme.tres" id="1_uuxf3"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y32ns"]
 size = Vector2(200, 200)
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_uuxf3")
 script = ExtResource("1_jtw3a")
 prompt_textbox = NodePath("HBoxContainer/Prompt")
 button_container = NodePath("Buttons")
@@ -32,7 +34,7 @@ stretch_mode = 2
 custom_minimum_size = Vector2(700, 200)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. "
+text = "This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
