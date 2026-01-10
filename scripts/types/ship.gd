@@ -25,7 +25,6 @@ static func new_ship() -> Ship:
 	this_ship._refinery = 2
 	this_ship._navigation = 2
 	this_ship._science = 2
-	this_ship._trip_length = 10
 
 	return(this_ship)
 
@@ -67,9 +66,6 @@ func affect_system(system: String, delta: int) -> void:
 	change_originality(system, false)
 
 func change_originality(system: String, new_state: bool) -> void:
-	if system == "trip_length":
-		return
-
 	if system not in Constants.SYSTEM_NAMES:
 		push_error("Invalid system accessed: %s" % system)
 
@@ -77,6 +73,19 @@ func change_originality(system: String, new_state: bool) -> void:
 
 	set(originality_var, new_state)
 
+func meets_requirements(requirement: ShipData) -> bool:
+	for system in Constants.SYSTEM_NAMES:
+		var this_requirement: int = requirement.get_system(system)
+		if this_requirement == 0:
+			continue
+
+		if get_system(system) < this_requirement:
+			return(false)
+
+	return(true)
+
 func add_effect(effect: ShipData) -> void:
+	print("New Values: ")
 	for system in Constants.SYSTEM_NAMES:
 		affect_system(system, effect.get_system(system))
+		print("   %s: %s" % [system, get_system(system)])

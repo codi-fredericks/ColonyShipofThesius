@@ -8,7 +8,6 @@ extends Resource
 @export var _refinery: int = 0
 @export var _navigation: int = 0
 @export var _science: int = 0
-@export var _trip_length: int = 0
 @warning_ignore_restore("unused_private_class_variable")
 
 func get_system(system: String) -> int:

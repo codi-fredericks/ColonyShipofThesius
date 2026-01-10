@@ -1,49 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwk4vn2lpchjv"]
+[gd_scene load_steps=4 format=3 uid="uid://cwk4vn2lpchjv"]
 
 [ext_resource type="Script" uid="uid://bcihqyyrqg6jy" path="res://scenes/event/event_scene.gd" id="1_jtw3a"]
-[ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_f0a7p"]
-[ext_resource type="Resource" uid="uid://cg5dtdqxqppl4" path="res://resources/events/break_events/event01.tres" id="3_jgbyj"]
-[ext_resource type="Resource" uid="uid://h082u4yiglwr" path="res://resources/events/break_events/event02.tres" id="4_cncik"]
+[ext_resource type="Theme" uid="uid://xejno4b30eo0" path="res://resources/theme.tres" id="1_uuxf3"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y32ns"]
+size = Vector2(200, 200)
 
-[node name="Event" type="Control" node_paths=PackedStringArray("prompt_textbox", "button_container")]
-layout_mode = 3
+[node name="Event" type="VBoxContainer" node_paths=PackedStringArray("prompt_textbox", "button_container")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_uuxf3")
 script = ExtResource("1_jtw3a")
-prompt_textbox = NodePath("Prompt")
+prompt_textbox = NodePath("HBoxContainer/Prompt")
 button_container = NodePath("Buttons")
-event_table = Array[ExtResource("2_f0a7p")]([ExtResource("3_jgbyj"), ExtResource("4_cncik")])
 
-[node name="Prompt" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -11.5
-offset_bottom = 204.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. "
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 16
+
+[node name="Event_Picture" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("PlaceholderTexture2D_y32ns")
+stretch_mode = 2
+
+[node name="Prompt" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(700, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text. This is sample Text."
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Buttons" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -101.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Event_Picture" type="TextureRect" parent="."]
-layout_mode = 1
-offset_right = 564.0
-offset_bottom = 309.0
-texture = SubResource("PlaceholderTexture2D_y32ns")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3

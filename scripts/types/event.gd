@@ -12,3 +12,13 @@ extends Resource
 
 @export_category("Options")
 @export var options: Array[EventOption] = []
+
+func do_event() -> void:
+	if sfx != &"":
+		SfxService.play(sfx)
+
+	if screen_shake:
+		ShakeService.shake()
+
+	if warn_color != Color8(0, 0, 0, 0):
+		pass
