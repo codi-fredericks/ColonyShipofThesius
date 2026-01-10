@@ -36,6 +36,12 @@ window/stretch/scale_mode="integer"
 game=""
 camera=""
 
+[gui]
+
+theme/default_font_antialiasing=0
+theme/default_font_subpixel_positioning=0
+theme/custom="uid://xejno4b30eo0"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

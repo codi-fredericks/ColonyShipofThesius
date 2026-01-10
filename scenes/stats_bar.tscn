@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://coct8t17ofqxf"]
+
+[ext_resource type="Theme" uid="uid://xejno4b30eo0" path="res://resources/theme.tres" id="1_idqxm"]
+[ext_resource type="Script" uid="uid://cp5e36k5i787m" path="res://scenes/stats_bar.gd" id="2_k7162"]
+
+[node name="StatsBar" type="HBoxContainer" node_paths=PackedStringArray("engines", "sensors", "refinery", "science", "shields", "weapons")]
+size_flags_vertical = 3
+theme = ExtResource("1_idqxm")
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("2_k7162")
+engines = NodePath("Engines")
+sensors = NodePath("Sensors")
+refinery = NodePath("Refinery")
+science = NodePath("Science")
+shields = NodePath("Shields")
+weapons = NodePath("Weapons")
+
+[node name="Engines" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "ENGN [/]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sensors" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "SENS [/]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Refinery" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "REFN [/]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Science" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "SCIN [/]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shields" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "SHLD [/]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weapons" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "WEPN [/]"
+horizontal_alignment = 1
+vertical_alignment = 1

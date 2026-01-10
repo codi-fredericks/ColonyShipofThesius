@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://buf8dk7q6tjx8"]
+
+[ext_resource type="FontFile" uid="uid://w0qbqpebjkcs" path="res://fonts/space_contract/Space_Contract.ttf" id="1_udwxy"]
+
+[resource]
+base_font = ExtResource("1_udwxy")
+spacing_glyph = -1

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cwk4vn2lpchjv" path="res://scenes/event/event.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://27ibbn5l7kbf" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://cas6js8sytpq" path="res://scenes/ship_view.tscn" id="3_fc0e3"]
-[ext_resource type="Theme" uid="uid://xejno4b30eo0" path="res://resources/theme.tres" id="4_7jktm"]
+[ext_resource type="PackedScene" uid="uid://coct8t17ofqxf" path="res://scenes/stats_bar.tscn" id="4_7jktm"]
 [ext_resource type="Script" uid="uid://boptoolihburo" path="res://scripts/services/ShakeService/screen_shaker.gd" id="4_fc0e3"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_feb5d"]
@@ -39,6 +39,7 @@ layout_mode = 2
 [node name="Event" parent="Game/OuterMargin/Contents" instance=ExtResource("1_80nbo")]
 layout_mode = 2
 size_flags_vertical = 3
+theme = null
 
 [node name="UIContainer" type="HBoxContainer" parent="Game/OuterMargin/Contents"]
 custom_minimum_size = Vector2(0, 175)
@@ -115,13 +116,9 @@ size_flags_horizontal = 8
 texture = SubResource("PlaceholderTexture2D_feb5d")
 stretch_mode = 2
 
-[node name="Stats" type="Label" parent="Game/OuterMargin/Contents/UIContainer/Status"]
+[node name="StatsBar" parent="Game/OuterMargin/Contents/UIContainer/Status" instance=ExtResource("4_7jktm")]
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("4_7jktm")
-text = "SENS [/]  SHLD [/]  WPNS [/]  RFIN [/]  ENGN [/]  SCIN [/]"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme = null
 
 [node name="ScreenShaker" type="Camera2D" parent="Game" node_paths=PackedStringArray("target") groups=["camera"]]
 script = ExtResource("4_fc0e3")

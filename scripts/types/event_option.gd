@@ -13,8 +13,6 @@ extends Resource
 @export var trip_length_mod: int
 
 func do_option(ship: Ship) -> void:
-	print(text)
-
 	if sfx != &"":
 		SfxService.play(sfx)
 

@@ -85,7 +85,5 @@ func meets_requirements(requirement: ShipData) -> bool:
 	return(true)
 
 func add_effect(effect: ShipData) -> void:
-	print("New Values: ")
 	for system in Constants.SYSTEM_NAMES:
 		affect_system(system, effect.get_system(system))
-		print("   %s: %s" % [system, get_system(system)])
