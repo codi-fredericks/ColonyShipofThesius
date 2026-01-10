@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="event" load_steps=2 format=3 uid="uid://cg5dtdqxqppl4"]
+
+[ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://event.gd" id="1_7bpiy"]
+
+[resource]
+script = ExtResource("1_7bpiy")
+Prompt = "Your Ship Clipped An Asteroid"
+option_text = Array[String](["Repair Engines", "Course Correc", "Accept Losses"])
+metadata/_custom_type_script = "uid://dg3vktrd0ncvi"
