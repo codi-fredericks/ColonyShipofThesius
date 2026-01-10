@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://xejno4b30eo0"]
+
+[ext_resource type="FontFile" uid="uid://w0qbqpebjkcs" path="res://fonts/space_contract/Space_Contract.ttf" id="1_d4nwg"]
+
+[sub_resource type="FontVariation" id="FontVariation_d4nwg"]
+base_font = ExtResource("1_d4nwg")
+spacing_glyph = -1
+
+[resource]
+Label/constants/line_spacing = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = SubResource("FontVariation_d4nwg")
