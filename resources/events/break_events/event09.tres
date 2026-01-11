@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="Event" load_steps=14 format=3 uid="uid://6hc615pshytp"]
+
+[ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="1_kj63l"]
+[ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_w46yt"]
+[ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_kj63l"]
+
+[sub_resource type="Resource" id="Resource_acy6o"]
+script = ExtResource("1_kj63l")
+_science = -1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_11lwc"]
+script = ExtResource("1_kj63l")
+_refinery = -1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_2bkkq"]
+script = ExtResource("1_kj63l")
+_refinery = 1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_u2bdm"]
+script = ExtResource("1_w46yt")
+text = "Repurpose Refinery"
+requirements = SubResource("Resource_2bkkq")
+effects = SubResource("Resource_11lwc")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[sub_resource type="Resource" id="Resource_3f5ob"]
+script = ExtResource("1_kj63l")
+_shields = -1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_qle7i"]
+script = ExtResource("1_kj63l")
+_shields = 1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_vge1b"]
+script = ExtResource("1_w46yt")
+text = "Repurpose Shields "
+requirements = SubResource("Resource_qle7i")
+effects = SubResource("Resource_3f5ob")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[sub_resource type="Resource" id="Resource_i34ca"]
+script = ExtResource("1_kj63l")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_bdu3y"]
+script = ExtResource("1_kj63l")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_xb5fx"]
+script = ExtResource("1_w46yt")
+text = "warden off science"
+screen_shake = true
+requirements = SubResource("Resource_bdu3y")
+effects = SubResource("Resource_i34ca")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[resource]
+script = ExtResource("2_kj63l")
+prompt = "An explosion in the hydroponics lab has resulted in a fire in science! We can make repairs if we repurpose another system"
+effects = SubResource("Resource_acy6o")
+sfx = &"explosion"
+screen_shake = true
+options = Array[ExtResource("1_w46yt")]([SubResource("Resource_u2bdm"), SubResource("Resource_vge1b"), SubResource("Resource_xb5fx")])
+metadata/_custom_type_script = "uid://dg3vktrd0ncvi"
