@@ -42,7 +42,9 @@ func remove_event_stop(count: int) -> void:
 		trip.remove_at(randi_range(trip_step, trip.size()))
 
 func add_stop(event_array: Array[Event]) -> void:
-	trip.append(event_array.pick_random())
+	var stop: Event = event_array.pick_random()
+	trip.append(stop)
+	event_array.erase(stop)
 
 func get_current_event() -> Event:
 	return(trip[trip_step])

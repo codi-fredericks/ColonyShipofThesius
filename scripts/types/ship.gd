@@ -4,7 +4,7 @@ extends ShipData
 signal system_damaged(system: String, delta: int)
 signal system_recovered(system: String, delta: int)
 
-var _max_stat: int = 4
+var _max_stat: int = 3
 var _min_stat: int = 0
 
 @warning_ignore_start("unused_private_class_variable")
@@ -59,9 +59,6 @@ func affect_system(system: String, delta: int) -> void:
 		return
 
 	system_recovered.emit(system, delta)
-
-	if system == "trip_length":
-		return
 
 	change_originality(system, false)
 

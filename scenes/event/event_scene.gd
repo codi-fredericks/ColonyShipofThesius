@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 @export_category("Controls")
-@export var prompt_textbox: Label
+@export var prompt_textbox: RichTextLabel
 @export var button_container: VBoxContainer
 @export var overflow_button_container: VBoxContainer
 @export var event_image: TextureRect
@@ -18,19 +18,28 @@ func _ready() -> void:
 	ship = game.ship
 
 	current_event = game.get_current_event()
+	if current_event.effects:
+		ship.add_effects(current_event.effects)
+	current_event.do_event()
 	fill_prompt()
 
 
 func get_next_event() -> void:
 	game.advance_trip()
 	current_event = game.get_current_event()
-	fill_prompt()
-	current_event.do_event()
 	if current_event.effects:
 		ship.add_effects(current_event.effects)
+	current_event.do_event()
+	fill_prompt()
 
 func fill_prompt() -> void:
-	prompt_textbox.text = current_event.prompt
+	prompt_textbox.text = ""
+	prompt_textbox.append_text(current_event.prompt)
+
+	if current_event.effects:
+		prompt_textbox.append_text(" [")
+		append_effects(prompt_textbox, current_event.effects)
+		prompt_textbox.append_text("]")
 
 	if current_event.image:
 		event_image.texture = event_image.texture
