@@ -1,16 +1,22 @@
-[gd_resource type="Resource" script_class="Event" load_steps=13 format=3 uid="uid://dp1i8en1nrrbt"]
+[gd_resource type="Resource" script_class="Event" load_steps=14 format=3 uid="uid://dp1i8en1nrrbt"]
 
 [ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_rvq3n"]
 [ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_6ff7n"]
 [ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="2_6iv4i"]
 
+[sub_resource type="Resource" id="Resource_8frak"]
+script = ExtResource("2_6iv4i")
+_shields = -1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
 [sub_resource type="Resource" id="Resource_6ff7n"]
 script = ExtResource("2_6iv4i")
+_shields = 3
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_s30p5"]
 script = ExtResource("2_6iv4i")
-_shields = 3
+_shields = 2
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_kcosk"]
@@ -22,6 +28,8 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [sub_resource type="Resource" id="Resource_6iv4i"]
 script = ExtResource("2_6iv4i")
+_shields = 1
+_weapons = -1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_odr8f"]
@@ -59,5 +67,6 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 script = ExtResource("2_6ff7n")
 prompt = "We've detected an anomaly in space that appears to be causing wild fluctuations in the hull integrity field of our shields, we must repair it before we lose Shields altogether
 "
+effects = SubResource("Resource_8frak")
 options = Array[ExtResource("1_rvq3n")]([SubResource("Resource_kcosk"), SubResource("Resource_y3q0y"), SubResource("Resource_x1pin")])
 metadata/_custom_type_script = "uid://dg3vktrd0ncvi"

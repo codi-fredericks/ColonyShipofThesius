@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_hv7hp"]
 script = ExtResource("3_yd1n2")
+_sensors = 3
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_1aj47"]
@@ -21,6 +22,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [sub_resource type="Resource" id="Resource_2d1cw"]
 script = ExtResource("3_yd1n2")
+_shields = 3
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_3pcgc"]
@@ -37,6 +39,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [sub_resource type="Resource" id="Resource_yd1n2"]
 script = ExtResource("3_yd1n2")
+_weapons = 3
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_1b2x2"]
@@ -52,6 +55,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [sub_resource type="Resource" id="Resource_0qlos"]
 script = ExtResource("3_yd1n2")
+_refinery = 3
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_ljsyn"]
@@ -67,6 +71,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [sub_resource type="Resource" id="Resource_d1gqv"]
 script = ExtResource("3_yd1n2")
+_engines = 3
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_ggics"]
@@ -83,6 +88,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [sub_resource type="Resource" id="Resource_o4gbc"]
 script = ExtResource("3_yd1n2")
+_science = 3
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_aa5lt"]

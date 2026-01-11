@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="Event" load_steps=13 format=3 uid="uid://e2u07imr1m7a"]
+[gd_resource type="Resource" script_class="Event" load_steps=14 format=3 uid="uid://e2u07imr1m7a"]
 
 [ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_17ktt"]
 [ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="2_gi07f"]
 [ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_vb6va"]
 
+[sub_resource type="Resource" id="Resource_gi02h"]
+script = ExtResource("2_gi07f")
+_refinery = -1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
 [sub_resource type="Resource" id="Resource_vb6va"]
 script = ExtResource("2_gi07f")
+_sensors = -1
+_refinery = 1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_y7ksg"]
@@ -22,6 +29,8 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [sub_resource type="Resource" id="Resource_gi07f"]
 script = ExtResource("2_gi07f")
+_shields = -1
+_refinery = 1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_ws11j"]
@@ -55,5 +64,8 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 script = ExtResource("2_vb6va")
 prompt = "The Smelter in the refinery has broken down, we wont be able to make new parts without it, we should repurpose another system to repair it.
 "
+effects = SubResource("Resource_gi02h")
+sfx = &"explosion"
+screen_shake = true
 options = Array[ExtResource("1_17ktt")]([SubResource("Resource_u8251"), SubResource("Resource_klibi"), SubResource("Resource_syy0w")])
 metadata/_custom_type_script = "uid://dg3vktrd0ncvi"

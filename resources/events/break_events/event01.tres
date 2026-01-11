@@ -1,11 +1,17 @@
-[gd_resource type="Resource" script_class="Event" load_steps=13 format=3 uid="uid://cg5dtdqxqppl4"]
+[gd_resource type="Resource" script_class="Event" load_steps=14 format=3 uid="uid://cg5dtdqxqppl4"]
 
 [ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_24egp"]
 [ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="2_puwpi"]
 [ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="3_7uit4"]
 
+[sub_resource type="Resource" id="Resource_uhr4c"]
+script = ExtResource("2_puwpi")
+_engines = -1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
 [sub_resource type="Resource" id="Resource_24egp"]
 script = ExtResource("2_puwpi")
+_engines = 1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_7p4ho"]
@@ -24,6 +30,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 [sub_resource type="Resource" id="Resource_7uit4"]
 script = ExtResource("2_puwpi")
 _weapons = -1
+_engines = 1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_puwpi"]
@@ -34,6 +41,8 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 [sub_resource type="Resource" id="Resource_g4ipu"]
 script = ExtResource("1_24egp")
 text = "Repurpose parts from Weapons"
+sfx = &"explosion"
+screen_shake = true
 requirements = SubResource("Resource_puwpi")
 effects = SubResource("Resource_7uit4")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
@@ -58,6 +67,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 script = ExtResource("3_7uit4")
 prompt = "An asteroid has been missed by our asteroid defense array, clipping our hull and causing damage to the Engines
 "
+effects = SubResource("Resource_uhr4c")
 sfx = &"explosion"
 screen_shake = true
 options = Array[ExtResource("1_24egp")]([SubResource("Resource_umigm"), SubResource("Resource_g4ipu"), SubResource("Resource_lokso")])

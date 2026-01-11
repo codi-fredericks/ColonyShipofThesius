@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="Event" load_steps=13 format=3 uid="uid://cg0tbyc2ia5vn"]
+[gd_resource type="Resource" script_class="Event" load_steps=14 format=3 uid="uid://cg0tbyc2ia5vn"]
 
 [ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_0a4at"]
 [ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_lx4jq"]
 [ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="2_ym3v4"]
 
+[sub_resource type="Resource" id="Resource_7xy47"]
+script = ExtResource("2_ym3v4")
+_engines = -1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
 [sub_resource type="Resource" id="Resource_lx4jq"]
 script = ExtResource("2_ym3v4")
+_engines = 1
+_science = -1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_5qc7t"]
@@ -24,6 +31,8 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [sub_resource type="Resource" id="Resource_ym3v4"]
 script = ExtResource("2_ym3v4")
+_refinery = -1
+_engines = 1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_onvpc"]
@@ -56,5 +65,6 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 [resource]
 script = ExtResource("2_lx4jq")
 prompt = "An explosion has been reported in the engine room, engineers say we can repair it, but not without parts from another system"
+effects = SubResource("Resource_7xy47")
 options = Array[ExtResource("1_0a4at")]([SubResource("Resource_jkoa6"), SubResource("Resource_u2npv"), SubResource("Resource_badf0")])
 metadata/_custom_type_script = "uid://dg3vktrd0ncvi"
