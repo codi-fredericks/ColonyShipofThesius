@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="2_puwpi"]
 [ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="3_7uit4"]
 
-[sub_resource type="Resource" id="Resource_6o8ni"]
+[sub_resource type="Resource" id="Resource_24egp"]
 script = ExtResource("2_puwpi")
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
@@ -18,10 +18,10 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 script = ExtResource("1_24egp")
 text = "Repair Engines"
 requirements = SubResource("Resource_7p4ho")
-effect = SubResource("Resource_6o8ni")
+effects = SubResource("Resource_24egp")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
-[sub_resource type="Resource" id="Resource_24egp"]
+[sub_resource type="Resource" id="Resource_7uit4"]
 script = ExtResource("2_puwpi")
 _weapons = -1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
@@ -35,12 +35,12 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 script = ExtResource("1_24egp")
 text = "Repurpose parts from Weapons"
 requirements = SubResource("Resource_puwpi")
-effect = SubResource("Resource_24egp")
+effects = SubResource("Resource_7uit4")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
-[sub_resource type="Resource" id="Resource_7uit4"]
+[sub_resource type="Resource" id="Resource_5cdbe"]
 script = ExtResource("2_puwpi")
-_engines = -2
+_engines = -1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_guoal"]
@@ -51,7 +51,7 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 script = ExtResource("1_24egp")
 text = "Accept the damage"
 requirements = SubResource("Resource_guoal")
-effect = SubResource("Resource_7uit4")
+effects = SubResource("Resource_5cdbe")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]

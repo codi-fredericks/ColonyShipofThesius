@@ -1,13 +1,8 @@
-[gd_resource type="Resource" script_class="Event" load_steps=13 format=3 uid="uid://cysqxrpytliwx"]
+[gd_resource type="Resource" script_class="Event" load_steps=10 format=3 uid="uid://e2u07imr1m7a"]
 
 [ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_17ktt"]
 [ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="2_gi07f"]
 [ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_vb6va"]
-
-[sub_resource type="Resource" id="Resource_mvqqi"]
-script = ExtResource("2_gi07f")
-_sensors = -1
-metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_y7ksg"]
 script = ExtResource("2_gi07f")
@@ -18,13 +13,7 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 script = ExtResource("1_17ktt")
 text = "Take Parts from Sensors"
 requirements = SubResource("Resource_y7ksg")
-effect = SubResource("Resource_mvqqi")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
-
-[sub_resource type="Resource" id="Resource_gi02h"]
-script = ExtResource("2_gi07f")
-_shields = 1
-metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_ws11j"]
 script = ExtResource("2_gi07f")
@@ -35,13 +24,7 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 script = ExtResource("1_17ktt")
 text = "Take parts from Shields"
 requirements = SubResource("Resource_ws11j")
-effect = SubResource("Resource_gi02h")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
-
-[sub_resource type="Resource" id="Resource_r2wst"]
-script = ExtResource("2_gi07f")
-_refinery = -2
-metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_ewnfn"]
 script = ExtResource("2_gi07f")
@@ -51,7 +34,6 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 script = ExtResource("1_17ktt")
 text = "Go Without A Refinery"
 requirements = SubResource("Resource_ewnfn")
-effect = SubResource("Resource_r2wst")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]

@@ -15,3 +15,6 @@ func update_colors() -> void:
 
 func get_system_color(system_value: int) -> Color:
 	return(palette.colors[Constants.SYSTEM_STATUS_COLORS[system_value]])
+
+func get_disabled_color() -> Color:
+	return(palette.colors[Constants.DISABLED_COLOR_IDX])

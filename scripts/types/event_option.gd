@@ -9,8 +9,9 @@ extends Resource
 
 @export_category("Choice Info")
 @export var requirements: ShipData
-@export var effect: ShipData
+@export var effects: ShipData
 @export var trip_length_mod: int
+
 
 func do_option(ship: Ship) -> void:
 	if sfx != &"":
@@ -19,7 +20,7 @@ func do_option(ship: Ship) -> void:
 	if screen_shake:
 		ShakeService.shake()
 
-	ship.add_effect(effect)
+	ship.add_effects(effects)
 
 	if trip_length_mod > 0:
 		NodeFinder.get_game_root().add_event_stop(trip_length_mod)

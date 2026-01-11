@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="2_dcntl"]
 [ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_qchmg"]
 
-[sub_resource type="Resource" id="Resource_hstr0"]
+[sub_resource type="Resource" id="Resource_qchmg"]
 script = ExtResource("2_dcntl")
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
@@ -17,16 +17,16 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 script = ExtResource("1_5h7rv")
 text = "Our Upgraded Sensors pick up replacement materials nearby"
 requirements = SubResource("Resource_ayo3x")
-effect = SubResource("Resource_hstr0")
+effects = SubResource("Resource_qchmg")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
-[sub_resource type="Resource" id="Resource_w8iw6"]
+[sub_resource type="Resource" id="Resource_dcntl"]
 script = ExtResource("2_dcntl")
-_refinery = -1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_tsvi7"]
 script = ExtResource("2_dcntl")
+_refinery = 1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_viyev"]
@@ -35,12 +35,11 @@ text = "Repurpose Parts from the Refinery to render repairs"
 sfx = &"explosion"
 screen_shake = true
 requirements = SubResource("Resource_tsvi7")
-effect = SubResource("Resource_w8iw6")
+effects = SubResource("Resource_dcntl")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
-[sub_resource type="Resource" id="Resource_06mjb"]
+[sub_resource type="Resource" id="Resource_hstr0"]
 script = ExtResource("2_dcntl")
-_science = -2
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_nqn6n"]
@@ -53,7 +52,7 @@ text = "Cordon off the Sci Lab for now"
 sfx = &"explosion"
 screen_shake = true
 requirements = SubResource("Resource_nqn6n")
-effect = SubResource("Resource_06mjb")
+effects = SubResource("Resource_hstr0")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_2ivv1"]
 [ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="2_vw3sf"]
 
-[sub_resource type="Resource" id="Resource_cukus"]
+[sub_resource type="Resource" id="Resource_2ivv1"]
 script = ExtResource("2_vw3sf")
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
@@ -17,30 +17,29 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 script = ExtResource("1_f1p1h")
 text = "Because it was upgraded the sabateur failed!"
 requirements = SubResource("Resource_vpxj7")
-effect = SubResource("Resource_cukus")
+effects = SubResource("Resource_2ivv1")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
-[sub_resource type="Resource" id="Resource_ofalw"]
+[sub_resource type="Resource" id="Resource_vw3sf"]
 script = ExtResource("2_vw3sf")
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_cqqwy"]
 script = ExtResource("2_vw3sf")
-_science = -1
+_science = 1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_17158"]
 script = ExtResource("1_f1p1h")
 text = "Repurpose materials from SCIN"
-sfx = &"explosion "
+sfx = &"explosion"
 screen_shake = true
 requirements = SubResource("Resource_cqqwy")
-effect = SubResource("Resource_ofalw")
+effects = SubResource("Resource_vw3sf")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
-[sub_resource type="Resource" id="Resource_3cwsy"]
+[sub_resource type="Resource" id="Resource_cukus"]
 script = ExtResource("2_vw3sf")
-_refinery = -1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_j6b5s"]
@@ -51,7 +50,7 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 script = ExtResource("1_f1p1h")
 text = "Accept Losses"
 requirements = SubResource("Resource_j6b5s")
-effect = SubResource("Resource_3cwsy")
+effects = SubResource("Resource_cukus")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]

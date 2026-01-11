@@ -10,6 +10,15 @@ const SYSTEM_NAMES: Array[String] = [
 	"science",
 ]
 
+const ABBREVIATIONS: Dictionary[String, String] = {
+	"engines": "ENGN",
+	"sensors": "SENS",
+	"refinery": "REFN",
+	"science": "SCIN",
+	"shields": "SHLD",
+	"weapons": "WEPN",
+}
+
 const INITIAL_TRIP_LENGTH: int = 10
 
 const BREAK_EVENT_FOLDER: String = "res://resources/events/break_events/"

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://l7dwhqjau4fb"]
+
+[ext_resource type="Script" uid="uid://c3q7cgboml6r2" path="res://scenes/event/RichButton/rich_button.gd" id="1_wyqr6"]
+
+[node name="RichButton" type="MarginContainer"]
+offset_top = 1.0
+offset_right = 369.0
+offset_bottom = 41.0
+script = ExtResource("1_wyqr6")
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "Test Test Test Test Test Test"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -3,7 +3,11 @@ extends Resource
 
 @export_category("Event Text")
 @export var title: String = ""
+@export var image: Texture2D = null
 @export_multiline var prompt : String = ""
+
+@export_category("Event Effects")
+@export var effects: ShipData
 
 @export_category("FX")
 @export var sfx: StringName = &""

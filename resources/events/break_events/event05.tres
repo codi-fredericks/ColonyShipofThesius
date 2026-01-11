@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_6ff7n"]
 [ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="2_6iv4i"]
 
-[sub_resource type="Resource" id="Resource_5hpmr"]
+[sub_resource type="Resource" id="Resource_6ff7n"]
 script = ExtResource("2_6iv4i")
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
@@ -17,16 +17,16 @@ metadata/_custom_type_script = "uid://bliqdoooj60xr"
 script = ExtResource("1_rvq3n")
 text = "Our upgraded shields can handle it"
 requirements = SubResource("Resource_s30p5")
-effect = SubResource("Resource_5hpmr")
+effects = SubResource("Resource_6ff7n")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
-[sub_resource type="Resource" id="Resource_8frak"]
+[sub_resource type="Resource" id="Resource_6iv4i"]
 script = ExtResource("2_6iv4i")
-_weapons = -1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_odr8f"]
 script = ExtResource("2_6iv4i")
+_weapons = 1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_y3q0y"]
@@ -35,12 +35,11 @@ text = "Canibalize Weapons to render reapair"
 sfx = &"explosion"
 screen_shake = true
 requirements = SubResource("Resource_odr8f")
-effect = SubResource("Resource_8frak")
+effects = SubResource("Resource_6iv4i")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
-[sub_resource type="Resource" id="Resource_r3j34"]
+[sub_resource type="Resource" id="Resource_5hpmr"]
 script = ExtResource("2_6iv4i")
-_shields = -1
 metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_iig1j"]
@@ -53,12 +52,12 @@ text = "We cant afford to take from weapons"
 sfx = &"explosion"
 screen_shake = true
 requirements = SubResource("Resource_iig1j")
-effect = SubResource("Resource_r3j34")
+effects = SubResource("Resource_5hpmr")
 metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_6ff7n")
-prompt = "We've detected an anomoly in space that appears to be causing wild fluctuations in the hull integrity field of our shields, we must repair it before we lose Shields altogether
+prompt = "We've detected an anomaly in space that appears to be causing wild fluctuations in the hull integrity field of our shields, we must repair it before we lose Shields altogether
 "
 options = Array[ExtResource("1_rvq3n")]([SubResource("Resource_kcosk"), SubResource("Resource_y3q0y"), SubResource("Resource_x1pin")])
 metadata/_custom_type_script = "uid://dg3vktrd0ncvi"
