@@ -28,7 +28,10 @@ func _ready() -> void:
 
 func generate_trip() -> void:
 	for i in range(Constants.INITIAL_TRIP_LENGTH):
-		add_stop(break_events)
+		if i == 5:
+			add_stop(resource_events)
+		else:
+			add_stop(break_events)
 
 func add_event_stop(count: int) -> void:
 	for i in range(count):

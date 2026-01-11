@@ -3,6 +3,7 @@ extends VBoxContainer
 @export_category("Controls")
 @export var prompt_textbox: Label
 @export var button_container: VBoxContainer
+@export var overflow_button_container: VBoxContainer
 @export var event_image: TextureRect
 
 var game: Game
@@ -38,12 +39,21 @@ func fill_prompt() -> void:
 		event_image.texture = PlaceholderTexture2D.new()
 		event_image.hide()
 
-	for child in button_container.get_children():
-		child.queue_free()
+	_clear_button_containers()
 
+	if current_event.options.size() > 3:
+		overflow_button_container.show()
+	else:
+		overflow_button_container.hide()
+
+	var option_index: int = 0
 	for option in current_event.options:
 		var new_button: RichButton = rich_button_scene.instantiate()
-		button_container.add_child(new_button)
+
+		if option_index >= 3:
+			overflow_button_container.add_child(new_button)
+		else:
+			button_container.add_child(new_button)
 
 		new_button.rich_text.text = ""
 		new_button.rich_text.append_text(option.text)
@@ -61,6 +71,8 @@ func fill_prompt() -> void:
 			new_button.rich_text.append_text("]")
 
 		new_button.connect("pressed", _on_option_selected.bind(option))
+
+		option_index += 1
 
 
 func get_missing_requirement_string(option: EventOption) -> String:
@@ -117,3 +129,10 @@ func _on_option_selected(option: EventOption) -> void:
 	if ship.meets_requirements(option.requirements):
 		option.do_option(ship)
 		get_next_event()
+
+func _clear_button_containers() -> void:
+	for child in button_container.get_children():
+		child.queue_free()
+
+	for child in overflow_button_container.get_children():
+		child.queue_free()

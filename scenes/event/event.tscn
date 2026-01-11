@@ -7,7 +7,7 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y32ns"]
 size = Vector2(200, 200)
 
-[node name="Event" type="VBoxContainer" node_paths=PackedStringArray("prompt_textbox", "button_container", "event_image")]
+[node name="Event" type="VBoxContainer" node_paths=PackedStringArray("prompt_textbox", "button_container", "overflow_button_container", "event_image")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,7 +16,8 @@ grow_vertical = 2
 theme = ExtResource("1_uuxf3")
 script = ExtResource("1_jtw3a")
 prompt_textbox = NodePath("HBoxContainer/Prompt")
-button_container = NodePath("Buttons")
+button_container = NodePath("ButtonMatrix/Buttons")
+overflow_button_container = NodePath("ButtonMatrix/OverflowButtons")
 event_image = NodePath("HBoxContainer/Event_Picture")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -41,10 +42,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Buttons" type="VBoxContainer" parent="."]
+[node name="ButtonMatrix" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="ButtonMatrix"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="RichButton" parent="Buttons" instance=ExtResource("3_wfxja")]
+[node name="RichButton" parent="ButtonMatrix/Buttons" instance=ExtResource("3_wfxja")]
+layout_mode = 2
+
+[node name="RichButton2" parent="ButtonMatrix/Buttons" instance=ExtResource("3_wfxja")]
+layout_mode = 2
+
+[node name="RichButton3" parent="ButtonMatrix/Buttons" instance=ExtResource("3_wfxja")]
+layout_mode = 2
+
+[node name="OverflowButtons" type="VBoxContainer" parent="ButtonMatrix"]
+visible = false
+layout_mode = 2
+
+[node name="RichButton" parent="ButtonMatrix/OverflowButtons" instance=ExtResource("3_wfxja")]
+layout_mode = 2
+
+[node name="RichButton2" parent="ButtonMatrix/OverflowButtons" instance=ExtResource("3_wfxja")]
+layout_mode = 2
+
+[node name="RichButton3" parent="ButtonMatrix/OverflowButtons" instance=ExtResource("3_wfxja")]
 layout_mode = 2
