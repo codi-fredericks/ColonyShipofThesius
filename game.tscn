@@ -1,13 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://e10cthxf2bhx"]
+[gd_scene load_steps=12 format=3 uid="uid://e10cthxf2bhx"]
 
 [ext_resource type="PackedScene" uid="uid://cwk4vn2lpchjv" path="res://scenes/event/event.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://27ibbn5l7kbf" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://cas6js8sytpq" path="res://scenes/ship_view.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://coct8t17ofqxf" path="res://scenes/stats_bar.tscn" id="4_7jktm"]
 [ext_resource type="Script" uid="uid://boptoolihburo" path="res://scripts/services/ShakeService/screen_shaker.gd" id="4_fc0e3"]
+[ext_resource type="Shader" uid="uid://1drpwxjboc3l" path="res://scripts/shaders/dry_planet.gdshader" id="6_ryrav"]
+[ext_resource type="Script" uid="uid://b4dqr8rn7guvk" path="res://planet.gd" id="7_eow3j"]
+[ext_resource type="Texture2D" uid="uid://cire862kxw5w0" path="res://assets/gfx/Placeholder120.png" id="7_j5wjh"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_eow3j"]
+viewport_path = NodePath("Planet1")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_feb5d"]
 size = Vector2(50, 140)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ryrav"]
+shader = ExtResource("6_ryrav")
+shader_parameter/pixels = 120.000005225
+shader_parameter/rotation = 0.0
+shader_parameter/light_origin = Vector2(0.8, 0.21)
+shader_parameter/light_distance1 = 0.357
+shader_parameter/light_distance2 = 0.45
+shader_parameter/time_speed = 0.10000000475
+shader_parameter/dither_size = 0.2690000127775
+shader_parameter/colors = PackedColorArray(1, 0.5372549, 0.2, 1, 0.9019608, 0.27058825, 0.22352941, 1, 0.6784314, 0.18431373, 0.27058825, 1, 0.32156864, 0.2, 0.24705882, 1, 0.23921569, 0.16078432, 0.21176471, 1)
+shader_parameter/n_colors = 5
+shader_parameter/size = 21.38
+shader_parameter/OCTAVES = 3
+shader_parameter/seed = 2.8730000889675003
+shader_parameter/time = 12167.605552815789
+shader_parameter/should_dither = true
 
 [node name="WindowRoot" type="Node2D"]
 
@@ -59,7 +82,8 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
 layout_mode = 2
 size_flags_horizontal = 0
-texture = SubResource("PlaceholderTexture2D_feb5d")
+size_flags_vertical = 4
+texture = SubResource("ViewportTexture_eow3j")
 stretch_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
@@ -127,3 +151,13 @@ max_offset = 12.0
 shake_time = 0.5
 shake_decay = 0.07
 camera_recover_rate = 5.0
+
+[node name="Planet1" type="SubViewport" parent="."]
+size = Vector2i(60, 120)
+render_target_update_mode = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Planet1"]
+material = SubResource("ShaderMaterial_ryrav")
+texture = ExtResource("7_j5wjh")
+offset = Vector2(-17, 60)
+script = ExtResource("7_eow3j")

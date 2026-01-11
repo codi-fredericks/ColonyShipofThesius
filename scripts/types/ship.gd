@@ -49,12 +49,12 @@ func affect_system(system: String, delta: int) -> void:
 	var new_value = clamp(current_value + delta, _min_stat, _max_stat)
 	set(system_var, new_value)
 
-	if delta < 0:
-		system_damaged.emit(system)
+	if delta > 0:
+		change_originality(system, false)
+		system_recovered.emit(system)
 		return
 
-	system_recovered.emit(system)
-	change_originality(system, false)
+	system_damaged.emit(system)
 
 func change_originality(system: String, new_state: bool) -> void:
 	if system not in Constants.SYSTEM_NAMES:

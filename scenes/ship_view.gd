@@ -19,10 +19,10 @@ func _ready() -> void:
 	ship.system_recovered.connect(_update_system_color)
 
 	for system in Constants.SYSTEM_NAMES:
-		_update_system_color(system, 0)
+		_update_system_color(system)
 
 
-func _update_system_color(system: String, _delta: int) -> void:
+func _update_system_color(system: String) -> void:
 	var system_node: TextureRect = get(system)
 	var system_value: int = ship.get_system(system)
 
