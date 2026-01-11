@@ -19,14 +19,20 @@ func _ready() -> void:
 	ship.system_recovered.connect(_update_system)
 
 	for system in Constants.SYSTEM_NAMES:
-		_update_system(system, 0)
+		_update_system(system)
 
-func _update_system(system: String, _delta: int) -> void:
+func _update_system(system: String) -> void:
 	var system_node: RichTextLabel = get(system)
 	var system_value: int = ship.get_system(system)
 
 	system_node.text = ""
+
+	if not ship.is_original(system):
+		system_node.push_color(ColorManager.get_refurbished_color())
+
 	system_node.append_text(Constants.ABBREVIATIONS[system])
+	system_node.pop_all()
+
 	system_node.append_text(" ")
 
 	system_node.push_color(ColorManager.get_system_color(system_value))

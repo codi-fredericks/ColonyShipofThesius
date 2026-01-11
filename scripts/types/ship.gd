@@ -1,8 +1,8 @@
 class_name Ship
 extends ShipData
 
-signal system_damaged(system: String, delta: int)
-signal system_recovered(system: String, delta: int)
+signal system_damaged(system: String)
+signal system_recovered(system: String)
 
 var _max_stat: int = 3
 var _min_stat: int = 0
@@ -44,22 +44,16 @@ func affect_system(system: String, delta: int) -> void:
 		push_error("Invalid system accessed: %s" % system)
 
 	var system_var: String = "_" + system
-
 	var current_value = get(system_var)
+
 	var new_value = clamp(current_value + delta, _min_stat, _max_stat)
-
-	if current_value == new_value:
-		return
-
-	delta = new_value - current_value
 	set(system_var, new_value)
 
 	if delta < 0:
-		system_damaged.emit(system, abs(delta))
+		system_damaged.emit(system)
 		return
 
-	system_recovered.emit(system, delta)
-
+	system_recovered.emit(system)
 	change_originality(system, false)
 
 func change_originality(system: String, new_state: bool) -> void:
