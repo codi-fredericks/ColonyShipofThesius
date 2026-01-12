@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Event" load_steps=11 format=3 uid="uid://jhkxlanr0kx4"]
+
+[ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_dtg5y"]
+[ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="1_r12nj"]
+[ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_r12nj"]
+
+[sub_resource type="Resource" id="Resource_472eg"]
+script = ExtResource("1_r12nj")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_nyvie"]
+script = ExtResource("1_r12nj")
+_sensors = 3
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_scgfe"]
+script = ExtResource("1_r12nj")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_yxag1"]
+script = ExtResource("1_dtg5y")
+text = "Reverse engineer it and upgrade our sensors!"
+requirements = SubResource("Resource_scgfe")
+effects = SubResource("Resource_nyvie")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[sub_resource type="Resource" id="Resource_xqbsn"]
+script = ExtResource("1_r12nj")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_yytg1"]
+script = ExtResource("1_r12nj")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_8q26c"]
+script = ExtResource("1_dtg5y")
+text = "Leave the space weather balloon alone"
+requirements = SubResource("Resource_yytg1")
+effects = SubResource("Resource_xqbsn")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[resource]
+script = ExtResource("2_r12nj")
+prompt = "We've discovered an alien satelite with enhanced sensors!"
+effects = SubResource("Resource_472eg")
+options = Array[ExtResource("1_dtg5y")]([SubResource("Resource_yxag1"), SubResource("Resource_8q26c")])
+metadata/_custom_type_script = "uid://dg3vktrd0ncvi"
