@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="Event" load_steps=14 format=3 uid="uid://dn76s1kycdvy1"]
+
+[ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_c3gcf"]
+[ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="1_sml63"]
+[ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_sml63"]
+
+[sub_resource type="Resource" id="Resource_baemv"]
+script = ExtResource("1_sml63")
+_engines = -1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_1dmym"]
+script = ExtResource("1_sml63")
+_refinery = -1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_na7wg"]
+script = ExtResource("1_sml63")
+_refinery = 1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_adqi1"]
+script = ExtResource("1_c3gcf")
+text = "Repurpose parts from the Refinery."
+requirements = SubResource("Resource_na7wg")
+effects = SubResource("Resource_1dmym")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[sub_resource type="Resource" id="Resource_c3y5f"]
+script = ExtResource("1_sml63")
+_science = -1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_oyerb"]
+script = ExtResource("1_sml63")
+_science = 1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_tiumo"]
+script = ExtResource("1_c3gcf")
+text = "Repurpose parts from Science"
+requirements = SubResource("Resource_oyerb")
+effects = SubResource("Resource_c3y5f")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[sub_resource type="Resource" id="Resource_1yrk8"]
+script = ExtResource("1_sml63")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_yucqn"]
+script = ExtResource("1_sml63")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_6tg0d"]
+script = ExtResource("1_c3gcf")
+text = "Accept Losses "
+requirements = SubResource("Resource_yucqn")
+effects = SubResource("Resource_1yrk8")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[resource]
+script = ExtResource("2_sml63")
+prompt = "There's been a breach in the FTL drive!"
+effects = SubResource("Resource_baemv")
+options = Array[ExtResource("1_c3gcf")]([SubResource("Resource_adqi1"), SubResource("Resource_tiumo"), SubResource("Resource_6tg0d")])
+metadata/_custom_type_script = "uid://dg3vktrd0ncvi"
