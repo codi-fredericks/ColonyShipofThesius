@@ -1,0 +1,1102 @@
+[gd_scene load_steps=30 format=3 uid="uid://bhshr2viisr54"]
+
+[ext_resource type="Script" uid="uid://bngxnljwi77lw" path="res://main_menu.gd" id="1_0k4wn"]
+[ext_resource type="Shader" uid="uid://1drpwxjboc3l" path="res://scripts/shaders/dry_planet.gdshader" id="1_0o4t1"]
+[ext_resource type="Texture2D" uid="uid://cire862kxw5w0" path="res://assets/gfx/Placeholder120.png" id="2_0k4wn"]
+[ext_resource type="Texture2D" uid="uid://xfnwync5ypoc" path="res://resources/stars.tres" id="2_w44g7"]
+[ext_resource type="Script" uid="uid://b4dqr8rn7guvk" path="res://planet.gd" id="3_j5v2v"]
+[ext_resource type="Shader" uid="uid://crwux3oc6xh2k" path="res://scripts/shaders/wet_planet.gdshader" id="4_iotk1"]
+[ext_resource type="Texture2D" uid="uid://b66r4xck0uxdj" path="res://assets/gfx/ship_parts/engines.png" id="5_w44g7"]
+[ext_resource type="Texture2D" uid="uid://3ecde5vhifep" path="res://assets/gfx/ship_parts/navigation.png" id="6_cm266"]
+[ext_resource type="Texture2D" uid="uid://cwg2t61mrpdlt" path="res://assets/gfx/ship_parts/refinery.png" id="7_g8g3n"]
+[ext_resource type="Texture2D" uid="uid://del25my31ixxq" path="res://assets/gfx/ship_parts/Sci.png" id="8_8u0te"]
+[ext_resource type="Texture2D" uid="uid://cvi6wsrhm4i8o" path="res://assets/gfx/ship_parts/shields.png" id="9_oiatc"]
+[ext_resource type="Texture2D" uid="uid://dlstbgnigoveg" path="res://assets/gfx/ship_parts/weapons.png" id="10_mg3m2"]
+[ext_resource type="Script" uid="uid://bsmas403xejjq" path="res://scripts/color_picker_manage.gd" id="12_iotk1"]
+[ext_resource type="Script" uid="uid://bbtkf04awfvwm" path="res://scripts/audio_slider.gd" id="12_j5v2v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0k4wn"]
+shader = ExtResource("1_0o4t1")
+shader_parameter/pixels = 120.000005225
+shader_parameter/rotation = 0.0
+shader_parameter/light_origin = Vector2(0.8, 0.21)
+shader_parameter/light_distance1 = 0.357
+shader_parameter/light_distance2 = 0.45
+shader_parameter/time_speed = 0.10000000475
+shader_parameter/dither_size = 0.2690000127775
+shader_parameter/colors = PackedColorArray(1, 0.5372549, 0.2, 1, 0.9019608, 0.27058825, 0.22352941, 1, 0.6784314, 0.18431373, 0.27058825, 1, 0.32156864, 0.2, 0.24705882, 1, 0.23921569, 0.16078432, 0.21176471, 1)
+shader_parameter/n_colors = 5
+shader_parameter/size = 21.38
+shader_parameter/OCTAVES = 3
+shader_parameter/seed = 2.8730000889675003
+shader_parameter/time = 26208.816850665386
+shader_parameter/should_dither = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5v2v"]
+shader = ExtResource("4_iotk1")
+shader_parameter/pixels = 100.0
+shader_parameter/rotation = 0.2000000095
+shader_parameter/light_origin = Vector2(0.39, 0.39)
+shader_parameter/time_speed = 0.10000000475
+shader_parameter/dither_size = 3.9510001876725
+shader_parameter/should_dither = true
+shader_parameter/light_border_1 = 0.2870000136325
+shader_parameter/light_border_2 = 0.47600002261
+shader_parameter/river_cutoff = 0.36800001748
+shader_parameter/colors = PackedColorArray(0.388235, 0.670588, 0.247059, 1, 0.231373, 0.490196, 0.309804, 1, 0.184314, 0.341176, 0.32549, 1, 0.156863, 0.207843, 0.25098, 1, 0.309804, 0.643137, 0.721569, 1, 0.25098, 0.286275, 0.45098, 1)
+shader_parameter/size = 4.6
+shader_parameter/OCTAVES = 6
+shader_parameter/seed = 5.010000190475
+shader_parameter/time = 6240.194488253663
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7bbuq"]
+viewport_path = NodePath("background/planet/Planet1")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_saq78"]
+viewport_path = NodePath("background/planet/Planet2")
+
+[sub_resource type="Curve2D" id="Curve2D_0o4t1"]
+bake_interval = 8.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, -50, 0, 0, 0, 0, 50, 0, 50, -50, -50, 0, 50, 0, 150, 50, 0, 0, 0, -50, 200, 0, 0, 0, -50, 0, 150, -50, 50, 0, -50, 0, 50, 50, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Animation" id="Animation_j5v2v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0k4wn"]
+resource_name = "main_menu_bob"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iotk1"]
+_data = {
+&"RESET": SubResource("Animation_j5v2v"),
+&"main_menu_bob": SubResource("Animation_0k4wn")
+}
+
+[sub_resource type="Gradient" id="Gradient_j5v2v"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1)
+colors = PackedColorArray(0.101960786, 0.101960786, 0.18431373, 0.7058824, 0.29411766, 0.29411766, 0.47058824, 0.7058824, 0.101960786, 0.101960786, 0.18431373, 0.7058824, 0.29411766, 0.29411766, 0.47058824, 0.7058824, 0.101960786, 0.101960786, 0.18431373, 0.7058824, 0.29411766, 0.29411766, 0.47058824, 0.7058824)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iotk1"]
+gradient = SubResource("Gradient_j5v2v")
+width = 468
+height = 132
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_w44g7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("credit_close:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("new_game_close:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("settings_close:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iotk1"]
+resource_name = "open_credits"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("credit_close:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cm266"]
+resource_name = "open_new_game"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("new_game_close:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g8g3n"]
+resource_name = "open_settings"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("settings_close:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cm266"]
+_data = {
+&"RESET": SubResource("Animation_w44g7"),
+&"open_credits": SubResource("Animation_iotk1"),
+&"open_new_game": SubResource("Animation_cm266"),
+&"open_settings": SubResource("Animation_g8g3n")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 2
+script = ExtResource("1_0k4wn")
+metadata/_edit_use_anchors_ = true
+
+[node name="background" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w44g7")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="planet" type="Control" parent="background"]
+anchors_preset = 0
+offset_left = 752.0
+offset_top = 208.0
+offset_right = 752.0
+offset_bottom = 208.0
+
+[node name="Planet1" type="SubViewport" parent="background/planet"]
+transparent_bg = true
+size = Vector2i(60, 120)
+render_target_update_mode = 4
+
+[node name="pivot" type="Control" parent="background/planet/Planet1"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 100.0
+offset_bottom = 100.0
+rotation = 0.7853982
+
+[node name="Sprite2D" type="Sprite2D" parent="background/planet/Planet1/pivot"]
+material = SubResource("ShaderMaterial_0k4wn")
+texture = ExtResource("2_0k4wn")
+script = ExtResource("3_j5v2v")
+
+[node name="Planet2" type="SubViewport" parent="background/planet"]
+transparent_bg = true
+size = Vector2i(60, 120)
+render_target_update_mode = 4
+
+[node name="pivot" type="Control" parent="background/planet/Planet2"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 60.0
+offset_right = 40.0
+offset_bottom = 100.0
+rotation = 0.7853982
+
+[node name="Sprite2D" type="Sprite2D" parent="background/planet/Planet2/pivot"]
+material = SubResource("ShaderMaterial_j5v2v")
+texture = ExtResource("2_0k4wn")
+script = ExtResource("3_j5v2v")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="background/planet"]
+layout_mode = 0
+offset_left = -260.0
+offset_top = 54.999996
+offset_right = -140.0
+offset_bottom = 175.0
+rotation = -0.7853982
+scale = Vector2(3, 3)
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="background/planet/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("ViewportTexture_7bbuq")
+
+[node name="TextureRect2" type="TextureRect" parent="background/planet/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("ViewportTexture_saq78")
+
+[node name="Path2D" type="Path2D" parent="background"]
+position = Vector2(463, 209)
+scale = Vector2(0.25, 0.25)
+curve = SubResource("Curve2D_0o4t1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="background/Path2D"]
+rotation = -1.5707964
+scale = Vector2(5, 5)
+rotates = false
+
+[node name="ship" type="Control" parent="background/Path2D/PathFollow2D"]
+layout_mode = 3
+anchor_left = 0.5475694
+anchor_top = 0.27407408
+anchor_right = 0.7725694
+anchor_bottom = 0.67407405
+offset_left = -120.0
+offset_top = 94.0
+offset_right = -120.0
+offset_bottom = 94.0
+rotation = 1.5707964
+metadata/_edit_use_anchors_ = true
+
+[node name="Engines" type="TextureRect" parent="background/Path2D/PathFollow2D/ship"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_w44g7")
+
+[node name="Sensors" type="TextureRect" parent="background/Path2D/PathFollow2D/ship"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_cm266")
+
+[node name="Refinery" type="TextureRect" parent="background/Path2D/PathFollow2D/ship"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_g8g3n")
+
+[node name="Science" type="TextureRect" parent="background/Path2D/PathFollow2D/ship"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_8u0te")
+
+[node name="Shields" type="TextureRect" parent="background/Path2D/PathFollow2D/ship"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_oiatc")
+
+[node name="Weapons" type="TextureRect" parent="background/Path2D/PathFollow2D/ship"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_mg3m2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="background"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_iotk1")
+}
+autoplay = "main_menu_bob"
+speed_scale = 0.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 391.0
+offset_bottom = 490.0
+size_flags_horizontal = 0
+
+[node name="play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 45
+text = "Play"
+
+[node name="credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 45
+text = "Credits"
+
+[node name="settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 45
+text = "Settings"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 45
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 29.0
+offset_right = 927.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 30
+text = "Colony Of Theseus"
+
+[node name="credit_close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(480, 270)
+focus_mode = 0
+flat = true
+
+[node name="credits" type="Panel" parent="credit_close"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -401.0
+offset_top = -229.0
+offset_right = 401.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="credit_close/credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(7.87389e-05, 0.010525786, 0.1307815, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="credit_close/credits/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="credits_text" type="RichTextLabel" parent="credit_close/credits/ColorRect/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=30][color=purple][ Developers ][/color][/font_size][/center]
+Original Idea by:
+- Sunny  [color=purple][url=https://suny-days-ahead.itch.io/][u]itch-io page[/u][/url][/color]
+- Riley [color=purple][url=https://that-damn-cat.itch.io/][u]itch-io page[/u][/url][/color]
+
+Finished by:
+- Codi Fredericks (dev dave) [color=purple][url=https://the-dev-dave.itch.io/][u]itch-io page[/u][/url][/color]
+
+
+[center][font_size=30][color=gold][ Assets ][/color][/font_size][/center]
+
+[b]Fonts[/b]
+Font: Space Contract
+Author: [url=https://v3x3d.itch.io/][u][b]VEXED[/b][/u][/url]
+Licence : CC-BY 4.0
+
+[b]textures[/b]
+Asset: Pixel Planets
+Author: [url=https://deep-fold.itch.io/][u][b]Deep-Fold[/b][/u][/url]
+Licence : MIT
+"
+
+[node name="credit_close" type="Button" parent="credit_close/credits/ColorRect"]
+layout_mode = 0
+anchor_left = 0.009975063
+anchor_top = 0.01746725
+anchor_right = 0.19825436
+anchor_bottom = 0.08733624
+text = "Close Credits"
+metadata/_edit_use_anchors_ = true
+
+[node name="settings_close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(480, 270)
+focus_mode = 0
+flat = true
+
+[node name="credits" type="Panel" parent="settings_close"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -401.0
+offset_top = -229.0
+offset_right = 401.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="settings_close/credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(7.87389e-05, 0.010525786, 0.1307815, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="settings_close/credits/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="reset_settings" type="Button" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Reset To Default Settings"
+
+[node name="config" type="VBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Sounds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="color" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/color"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Background"
+
+[node name="color_background" type="ColorPickerButton" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/color"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+button_pressed = true
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("12_iotk1")
+presets = false
+sampler = false
+color_modes = false
+preset = 8
+
+[node name="color2" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/color2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Disabled"
+
+[node name="color_disabled" type="ColorPickerButton" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/color2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+button_pressed = true
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("12_iotk1")
+presets = false
+sampler = false
+color_modes = false
+preset = 8
+
+[node name="color3" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/color3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Font Color"
+
+[node name="color_font" type="ColorPickerButton" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/color3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+button_pressed = true
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("12_iotk1")
+presets = false
+sampler = false
+color_modes = false
+preset = 8
+
+[node name="color4" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/color4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Referbished"
+
+[node name="color_not_original" type="ColorPickerButton" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/color4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+button_pressed = true
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("12_iotk1")
+presets = false
+sampler = false
+color_modes = false
+preset = 8
+
+[node name="VSeparator" type="VSeparator" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="color" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/color"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Broken"
+
+[node name="color_broken" type="ColorPickerButton" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/color"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+button_pressed = true
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("12_iotk1")
+presets = false
+sampler = false
+color_modes = false
+preset = 8
+
+[node name="color2" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/color2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damaged"
+
+[node name="color_damaged" type="ColorPickerButton" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/color2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+button_pressed = true
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("12_iotk1")
+presets = false
+sampler = false
+color_modes = false
+
+[node name="color3" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/color3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nominal"
+
+[node name="color_nominal" type="ColorPickerButton" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/color3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+button_pressed = true
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("12_iotk1")
+presets = false
+sampler = false
+color_modes = false
+preset = 8
+
+[node name="color4" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/color4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgraded"
+
+[node name="color_upgraded" type="ColorPickerButton" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/Panel/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/color4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+button_pressed = true
+edit_alpha = false
+edit_intensity = false
+script = ExtResource("12_iotk1")
+presets = false
+sampler = false
+color_modes = false
+
+[node name="audio" type="Panel" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sounds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="master" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer" node_paths=PackedStringArray("label_value")]
+layout_mode = 2
+script = ExtResource("12_j5v2v")
+label_value = NodePath("value")
+audio_bus = "Master"
+
+[node name="volume_label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/master"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "Master"
+
+[node name="value" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/master"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "100.0 %"
+
+[node name="audio_master" type="HSlider" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/master"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+rounded = true
+tick_count = 10
+ticks_on_borders = true
+ticks_position = 2
+
+[node name="sfx" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer" node_paths=PackedStringArray("label_value")]
+layout_mode = 2
+script = ExtResource("12_j5v2v")
+label_value = NodePath("value")
+audio_bus = "SFX"
+
+[node name="volume_label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/sfx"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "SFX"
+
+[node name="value" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/sfx"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "100.0 %"
+
+[node name="audio_sfx" type="HSlider" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/sfx"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+rounded = true
+tick_count = 10
+ticks_on_borders = true
+ticks_position = 2
+
+[node name="music" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer" node_paths=PackedStringArray("label_value")]
+layout_mode = 2
+script = ExtResource("12_j5v2v")
+label_value = NodePath("value")
+audio_bus = "Music"
+
+[node name="volume_label" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/music"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "Music"
+
+[node name="value" type="Label" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/music"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+text = "100.0 %"
+
+[node name="audio_music" type="HSlider" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/music"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+rounded = true
+tick_count = 10
+ticks_on_borders = true
+ticks_position = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="settings_close" type="Button" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="settings_save" type="Button" parent="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Apply and Save"
+
+[node name="new_game_close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(480, 270)
+focus_mode = 0
+flat = true
+
+[node name="new_game" type="Panel" parent="new_game_close"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.0
+offset_top = -142.0
+offset_right = 284.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="new_game_close/new_game"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(7.87389e-05, 0.010525786, 0.1307815, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="new_game_close/new_game/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="new_game_close/new_game/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Difficulty"
+
+[node name="gamemode" type="OptionButton" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 1
+item_count = 4
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "Hard"
+popup/item_2/id = 2
+popup/item_3/text = "Custom"
+popup/item_3/id = 3
+
+[node name="HSeparator" type="HSeparator" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="config" type="VBoxContainer" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="break" type="HBoxContainer" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/config"]
+visible = false
+layout_mode = 2
+
+[node name="break_events" type="CheckBox" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/config/break"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+
+[node name="Label" type="Label" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/config/break"]
+layout_mode = 2
+text = "Break Events"
+
+[node name="resource" type="HBoxContainer" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/config"]
+visible = false
+layout_mode = 2
+
+[node name="resource_events" type="CheckBox" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/config/resource"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+
+[node name="Label" type="Label" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/config/resource"]
+layout_mode = 2
+text = "Resource Events"
+
+[node name="route" type="HBoxContainer" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/config"]
+visible = false
+layout_mode = 2
+
+[node name="route_events" type="CheckBox" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/config/route"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+
+[node name="Label" type="Label" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/config/route"]
+layout_mode = 2
+text = "Route Events"
+
+[node name="stop_count_label" type="Label" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/config"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Journey Stops: 10"
+
+[node name="stop_count" type="HSlider" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/config"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 20.0
+value = 10.0
+rounded = true
+tick_count = 20
+ticks_on_borders = true
+ticks_position = 1
+
+[node name="HSeparator2" type="HSeparator" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="new_game_close" type="Button" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="new_game_start" type="Button" parent="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start"
+
+[node name="block" type="TextureRect" parent="new_game_close/new_game/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 50.0
+offset_top = 78.0
+offset_right = 518.0
+offset_bottom = 210.0
+texture = SubResource("GradientTexture2D_iotk1")
+
+[node name="Label" type="Label" parent="new_game_close/new_game/ColorRect/block"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+text = "Custom Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cm266")
+}
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="credit_close" to="." method="_on_credit_close_pressed"]
+[connection signal="meta_clicked" from="credit_close/credits/ColorRect/MarginContainer/credits_text" to="." method="_on_credits_text_meta_clicked"]
+[connection signal="pressed" from="credit_close/credits/ColorRect/credit_close" to="." method="_on_credit_close_pressed"]
+[connection signal="pressed" from="settings_close" to="." method="_on_settings_close_pressed"]
+[connection signal="pressed" from="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/reset_settings" to="." method="_on_reset_settings_pressed"]
+[connection signal="value_changed" from="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/master/audio_master" to="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/master" method="on_change"]
+[connection signal="value_changed" from="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/sfx/audio_sfx" to="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/sfx" method="on_change"]
+[connection signal="value_changed" from="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/music/audio_music" to="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/config/audio/MarginContainer/VBoxContainer/music" method="on_change"]
+[connection signal="pressed" from="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/settings_close" to="." method="_on_settings_close_pressed"]
+[connection signal="pressed" from="settings_close/credits/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/settings_save" to="." method="_on_settings_save_pressed"]
+[connection signal="pressed" from="new_game_close" to="." method="_on_new_game_close_pressed"]
+[connection signal="item_selected" from="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/HBoxContainer2/gamemode" to="." method="_on_option_button_item_selected"]
+[connection signal="value_changed" from="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/config/stop_count" to="." method="_on_stop_count_value_changed"]
+[connection signal="pressed" from="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/new_game_close" to="." method="_on_new_game_close_pressed"]
+[connection signal="pressed" from="new_game_close/new_game/ColorRect/MarginContainer/VBoxContainer/HBoxContainer/new_game_start" to="." method="_on_new_game_start_pressed"]

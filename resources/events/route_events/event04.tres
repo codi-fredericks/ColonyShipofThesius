@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Event" load_steps=11 format=3 uid="uid://curuthiys188f"]
+
+[ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="1_jmwpf"]
+[ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_mq0el"]
+[ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_jmwpf"]
+
+[sub_resource type="Resource" id="Resource_5k8vg"]
+script = ExtResource("1_jmwpf")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_oyd8t"]
+script = ExtResource("1_jmwpf")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_hobtc"]
+script = ExtResource("1_jmwpf")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_soq6g"]
+script = ExtResource("1_mq0el")
+text = "Sounds delightful"
+requirements = SubResource("Resource_hobtc")
+effects = SubResource("Resource_oyd8t")
+trip_length_mod = 1
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[sub_resource type="Resource" id="Resource_r4281"]
+script = ExtResource("1_jmwpf")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_aaab5"]
+script = ExtResource("1_jmwpf")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_tt5dv"]
+script = ExtResource("1_mq0el")
+text = "Ignore it we must stay on course"
+requirements = SubResource("Resource_aaab5")
+effects = SubResource("Resource_r4281")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[resource]
+script = ExtResource("2_jmwpf")
+category = "route"
+prompt = "We have found a sign for an alien resturant, if we go to it it will take us longer but we get weird food."
+effects = SubResource("Resource_5k8vg")
+options = Array[ExtResource("1_mq0el")]([SubResource("Resource_soq6g"), SubResource("Resource_tt5dv")])
+metadata/_custom_type_script = "uid://dg3vktrd0ncvi"

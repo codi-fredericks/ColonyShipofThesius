@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Colony of Theseus"
-run/main_scene="uid://e10cthxf2bhx"
+run/main_scene="uid://3og74522milp"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="colony_of_theseus"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="uid://v5edp3s45ojl"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+config/icon="uid://26gbvf6xoqsc"
 
 [autoload]
 
@@ -23,13 +27,14 @@ SfxService="*res://scripts/services/SFXService/SFXService.gd"
 RngService="*res://scripts/services/rng_service.gd"
 ShakeService="*res://scripts/services/ShakeService/shake_service.gd"
 ColorManager="*res://scripts/services/color_manager.gd"
+MusicManager="*res://scenes/music_manager.tscn"
+Global="*res://scripts/services/global.gd"
 
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
 
 [global_group]
 
@@ -47,3 +52,4 @@ theme/custom="uid://xejno4b30eo0"
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

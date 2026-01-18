@@ -19,6 +19,26 @@ const ABBREVIATIONS: Dictionary[String, String] = {
 	"weapons": "WEPN",
 }
 
+const STATUS: Dictionary[int,String] = {
+	0: "res://assets/gfx/unknown.png",
+	1: "res://assets/gfx/bad.png",
+	2: "res://assets/gfx/neutral.png",
+	3: "res://assets/gfx/good.png"
+}
+
+const ICONS: Dictionary[String,String] = {
+	"unknown":"res://assets/gfx/unknown.png",
+	"route":"res://assets/gfx/route.png",
+	"resource":"res://assets/gfx/resources.png",
+	"broken":"res://assets/gfx/broken.png"
+}
+
+const GAMEMODE_PRESETS: Dictionary[String,GameModePreset] = {
+	"easy":preload("res://resources/gamemodes/easy.tres"),
+	"medium":preload("res://resources/gamemodes/medium.tres"),
+	"hard":preload("res://resources/gamemodes/hard.tres")
+}
+
 const INITIAL_TRIP_LENGTH: int = 10
 
 const BREAK_EVENT_FOLDER: String = "res://resources/events/break_events/"

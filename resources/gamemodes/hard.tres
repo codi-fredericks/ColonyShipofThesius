@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GameModePreset" load_steps=2 format=3 uid="uid://dhqicl0mwbreo"]
+
+[ext_resource type="Script" uid="uid://dlkt1x65p37fg" path="res://scripts/types/gamemode_preset.gd" id="1_pkdtc"]
+
+[resource]
+script = ExtResource("1_pkdtc")
+break_events = true
+route_events = true
+stops = 15
+metadata/_custom_type_script = "uid://dlkt1x65p37fg"

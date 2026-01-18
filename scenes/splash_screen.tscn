@@ -1,0 +1,154 @@
+[gd_scene load_steps=12 format=3 uid="uid://buk5ap0dfju4o"]
+
+[ext_resource type="Script" uid="uid://c7enn83rj1ghg" path="res://scenes/splash_screen.gd" id="1_hsxvm"]
+[ext_resource type="PackedScene" uid="uid://bhshr2viisr54" path="res://main_menu.tscn" id="2_3mj2l"]
+[ext_resource type="Texture2D" uid="uid://2ssj224ef2ge" path="res://assets/gfx/icon_planet_only.png" id="3_dhol4"]
+[ext_resource type="Texture2D" uid="uid://xfnwync5ypoc" path="res://resources/stars.tres" id="3_vob37"]
+[ext_resource type="Texture2D" uid="uid://5mhtdjkasmj0" path="res://assets/gfx/GWJ-Full-Logo-tag.svg" id="4_1yudw"]
+[ext_resource type="Texture2D" uid="uid://cvydaab1dkqs6" path="res://assets/gfx/89-Repurposed.png" id="5_l2ee6"]
+[ext_resource type="Texture2D" uid="uid://b55g6rydv3jmv" path="res://assets/gfx/new-pop-up.png" id="6_sg4fj"]
+[ext_resource type="Texture2D" uid="uid://b8ia5lkbjgj3t" path="res://assets/gfx/center-of-ur-world.png" id="7_jq1gj"]
+[ext_resource type="Texture2D" uid="uid://p3ctfiblemsq" path="res://assets/gfx/new-me.png" id="8_eeiqh"]
+[ext_resource type="Shader" uid="uid://cbya07fgdyygb" path="res://scripts/shaders/blur.gdshader" id="9_w4c0s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vob37"]
+shader = ExtResource("9_w4c0s")
+shader_parameter/lod = 0.50000002375
+
+[node name="SplashScreen" type="Control" node_paths=PackedStringArray("splash_screen_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hsxvm")
+load_scene = ExtResource("2_3mj2l")
+splash_screen_container = NodePath("screens")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="screens" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game_logo" type="TextureRect" parent="screens"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vob37")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="logo" type="TextureRect" parent="screens/Game_logo"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -264.0
+offset_right = 264.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_dhol4")
+expand_mode = 1
+
+[node name="gwj" type="ColorRect" parent="screens"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.13333334, 0.2509804, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="screens/gwj"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="screens/gwj/MarginContainer"]
+layout_mode = 2
+
+[node name="wilding" type="TextureRect" parent="screens/gwj/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+texture = ExtResource("4_1yudw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="screens/gwj/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+alignment = 1
+
+[node name="banner" type="TextureRect" parent="screens/gwj/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_l2ee6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="screens/gwj/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="screens/gwj/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.3032328, 0.30323285, 0.30323276, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_sg4fj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="screens/gwj/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_jq1gj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="screens/gwj/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.3032328, 0.30323285, 0.30323276, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("8_eeiqh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="screens/gwj"]
+material = SubResource("ShaderMaterial_vob37")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true

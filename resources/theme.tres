@@ -4,6 +4,7 @@
 [ext_resource type="FontVariation" uid="uid://cysatalfoewe3" path="res://fonts/space_contract/cutout_variation.tres" id="2_7ct1h"]
 
 [resource]
+default_font = ExtResource("1_d4nwg")
 Label/colors/font_color = Color(0.9411765, 0.9411765, 0.8627451, 1)
 Label/constants/line_spacing = 1
 Label/font_sizes/font_size = 16

@@ -62,6 +62,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_vb6va")
+category = "broken"
 prompt = "The Smelter in the refinery has broken down, we wont be able to make new parts without it, we should repurpose another system to repair it.
 "
 effects = SubResource("Resource_gi02h")

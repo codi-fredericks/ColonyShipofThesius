@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="Event" load_steps=11 format=3 uid="uid://bcqi5ixd17ild"]
+
+[ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_lfud6"]
+[ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="1_scqvh"]
+[ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_scqvh"]
+
+[sub_resource type="Resource" id="Resource_rlhwk"]
+script = ExtResource("1_scqvh")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_ywmmu"]
+script = ExtResource("1_scqvh")
+_engines = 1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_c4git"]
+script = ExtResource("1_scqvh")
+_refinery = 1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_03hnr"]
+script = ExtResource("1_lfud6")
+text = "Lets go collect some"
+requirements = SubResource("Resource_c4git")
+effects = SubResource("Resource_ywmmu")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[sub_resource type="Resource" id="Resource_e54sp"]
+script = ExtResource("1_scqvh")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_s5mve"]
+script = ExtResource("1_scqvh")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_meywk"]
+script = ExtResource("1_lfud6")
+text = "Ignore it"
+requirements = SubResource("Resource_s5mve")
+effects = SubResource("Resource_e54sp")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[resource]
+script = ExtResource("2_scqvh")
+category = "resource"
+prompt = "Our sensors have detected a cloud of rich resources nearby that we could refine for fuel."
+effects = SubResource("Resource_rlhwk")
+options = Array[ExtResource("1_lfud6")]([SubResource("Resource_03hnr"), SubResource("Resource_meywk")])
+metadata/_custom_type_script = "uid://dg3vktrd0ncvi"

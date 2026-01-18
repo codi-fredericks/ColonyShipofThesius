@@ -64,6 +64,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_lx4jq")
+category = "broken"
 prompt = "An explosion has been reported in the engine room, engineers say we can repair it, but not without parts from another system"
 effects = SubResource("Resource_7xy47")
 options = Array[ExtResource("1_0a4at")]([SubResource("Resource_jkoa6"), SubResource("Resource_u2npv"), SubResource("Resource_badf0")])

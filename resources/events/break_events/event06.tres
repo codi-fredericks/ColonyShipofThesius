@@ -65,6 +65,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_qchmg")
+category = "broken"
 prompt = "There has been a lab accident while we were researching new fuels, the Science Lab has been damaged badly but we should be able to render repair
 "
 effects = SubResource("Resource_w8iw6")

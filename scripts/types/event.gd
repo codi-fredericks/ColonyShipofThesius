@@ -4,6 +4,7 @@ extends Resource
 @export_category("Event Text")
 @export var title: String = ""
 @export var image: Texture2D = null
+@export_enum("unknown","route","resource","broken") var category:String = "unknown"
 @export_multiline var prompt : String = ""
 
 @export_category("Event Effects")

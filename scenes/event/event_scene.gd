@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Control
 
 @export_category("Controls")
 @export var prompt_textbox: RichTextLabel
@@ -25,7 +25,6 @@ func _ready() -> void:
 
 
 func get_next_event() -> void:
-	game.advance_trip()
 	current_event = game.get_current_event()
 	if current_event.effects:
 		ship.add_effects(current_event.effects)
@@ -33,6 +32,11 @@ func get_next_event() -> void:
 	fill_prompt()
 
 func fill_prompt() -> void:
+	$Control/ColorRect.color = current_event.warn_color
+	if current_event.warn_color != Color(0,0,0,0):
+		$AnimationPlayer.play("warning")
+	else:
+		$AnimationPlayer.stop()
 	prompt_textbox.text = ""
 	prompt_textbox.append_text(current_event.prompt)
 
@@ -137,7 +141,7 @@ func append_effects(rich_text: RichTextLabel, effects: ShipData) -> void:
 func _on_option_selected(option: EventOption) -> void:
 	if ship.meets_requirements(option.requirements):
 		option.do_option(ship)
-		get_next_event()
+		game.advance_trip()
 
 func _clear_button_containers() -> void:
 	for child in button_container.get_children():

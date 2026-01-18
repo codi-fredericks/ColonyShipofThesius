@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="Event" load_steps=11 format=3 uid="uid://b5g86egpojja4"]
+
+[ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_2fhqj"]
+[ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="1_tgj6m"]
+[ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_tgj6m"]
+
+[sub_resource type="Resource" id="Resource_njowo"]
+script = ExtResource("1_tgj6m")
+_refinery = -1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_tgj6m"]
+script = ExtResource("1_tgj6m")
+_weapons = -1
+_refinery = 1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_alamu"]
+script = ExtResource("1_tgj6m")
+_weapons = 1
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_nk6je"]
+script = ExtResource("1_2fhqj")
+text = "Repurpose weapons"
+sfx = &"explosion"
+requirements = SubResource("Resource_alamu")
+effects = SubResource("Resource_tgj6m")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[sub_resource type="Resource" id="Resource_pigml"]
+script = ExtResource("1_tgj6m")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_te5gs"]
+script = ExtResource("1_tgj6m")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_jnnxx"]
+script = ExtResource("1_2fhqj")
+text = "Ignore it"
+requirements = SubResource("Resource_te5gs")
+effects = SubResource("Resource_pigml")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[resource]
+script = ExtResource("2_tgj6m")
+category = "broken"
+prompt = "One of the crew jammed the shreader in the refinery, if we repurpose the targeting array from weapons we should be able to repair it."
+effects = SubResource("Resource_njowo")
+sfx = &"explosion"
+screen_shake = true
+options = Array[ExtResource("1_2fhqj")]([SubResource("Resource_nk6je"), SubResource("Resource_jnnxx")])
+metadata/_custom_type_script = "uid://dg3vktrd0ncvi"

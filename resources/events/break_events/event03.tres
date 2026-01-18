@@ -63,6 +63,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_xnshp")
+category = "broken"
 prompt = "The Motor Mechanism in our asteroid defense turrets has jammed, leaving us vulnerable, parts can probably be reused from Shields to repair it
 "
 effects = SubResource("Resource_b05n8")

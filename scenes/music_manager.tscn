@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpefbkfo4gnwk"]
+
+[ext_resource type="Script" uid="uid://c5t32vw3oxtrl" path="res://scenes/music_manager.gd" id="1_hetdf"]
+[ext_resource type="AudioStream" uid="uid://wm4w2f720jsv" path="res://assets/sfx/MyVeryOwnDeadShip.ogg" id="1_tn5dr"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_hetdf")
+
+[node name="background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_tn5dr")
+bus = &"Music"

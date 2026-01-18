@@ -12,6 +12,8 @@ func change_palette(new_palette: ColorPalette) -> void:
 
 func update_colors() -> void:
 	RenderingServer.set_default_clear_color(palette.colors[Constants.BG_COLOR_IDX])
+	ThemeDB.get_project_theme().set_color("font_color","Label",palette.colors[Constants.FG_COLOR_IDX])
+	ThemeDB.get_project_theme().set_color("default_color","RichTextLabel",palette.colors[Constants.FG_COLOR_IDX])
 
 func get_system_color(system_value: int) -> Color:
 	return(palette.colors[Constants.SYSTEM_STATUS_COLORS[system_value]])

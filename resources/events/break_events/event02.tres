@@ -64,6 +64,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_17w0v")
+category = "broken"
 prompt = "The Sensor Array has encountered an unrecoverable error, if we repurpose the targeting array from weapons we should be able to repair it"
 effects = SubResource("Resource_dqxyi")
 sfx = &"explosion"

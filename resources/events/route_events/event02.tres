@@ -1,8 +1,12 @@
-[gd_resource type="Resource" script_class="Event" load_steps=10 format=3 uid="uid://dhoxknyrg5kp5"]
+[gd_resource type="Resource" script_class="Event" load_steps=11 format=3 uid="uid://dhoxknyrg5kp5"]
 
 [ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="1_3xapa"]
 [ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="2_v4ygs"]
 [ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="2_x6ow6"]
+
+[sub_resource type="Resource" id="Resource_thuf6"]
+script = ExtResource("2_v4ygs")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
 
 [sub_resource type="Resource" id="Resource_yr2fb"]
 script = ExtResource("2_v4ygs")
@@ -40,6 +44,8 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_x6ow6")
+category = "route"
 prompt = "We've detected a nearby black hole, if we slingshot around it's acretion disc we might be able to speed up our trip at the cost of our engines"
+effects = SubResource("Resource_thuf6")
 options = Array[ExtResource("1_3xapa")]([SubResource("Resource_kouq4"), SubResource("Resource_ow6gp")])
 metadata/_custom_type_script = "uid://dg3vktrd0ncvi"

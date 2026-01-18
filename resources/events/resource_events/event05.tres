@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Event" load_steps=11 format=3 uid="uid://cmffc4rhjyxux"]
+
+[ext_resource type="Script" uid="uid://bliqdoooj60xr" path="res://scripts/types/ship_data.gd" id="1_n80c6"]
+[ext_resource type="Script" uid="uid://c10s4eou115bk" path="res://scripts/types/event_option.gd" id="2_hnq7q"]
+[ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="3_behr2"]
+
+[sub_resource type="Resource" id="Resource_rlhwk"]
+script = ExtResource("1_n80c6")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_n80c6"]
+script = ExtResource("1_n80c6")
+_science = 2
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_hnq7q"]
+script = ExtResource("1_n80c6")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_behr2"]
+script = ExtResource("2_hnq7q")
+text = "What are we waiting for?"
+requirements = SubResource("Resource_hnq7q")
+effects = SubResource("Resource_n80c6")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[sub_resource type="Resource" id="Resource_e54sp"]
+script = ExtResource("1_n80c6")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_s5mve"]
+script = ExtResource("1_n80c6")
+metadata/_custom_type_script = "uid://bliqdoooj60xr"
+
+[sub_resource type="Resource" id="Resource_meywk"]
+script = ExtResource("2_hnq7q")
+text = "Ignore it"
+requirements = SubResource("Resource_s5mve")
+effects = SubResource("Resource_e54sp")
+metadata/_custom_type_script = "uid://c10s4eou115bk"
+
+[resource]
+script = ExtResource("3_behr2")
+category = "resource"
+prompt = "One of the crew found a 3d printer we can use to improve the science module."
+effects = SubResource("Resource_rlhwk")
+options = Array[ExtResource("2_hnq7q")]([SubResource("Resource_behr2"), SubResource("Resource_meywk")])
+metadata/_custom_type_script = "uid://dg3vktrd0ncvi"

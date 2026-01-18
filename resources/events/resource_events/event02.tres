@@ -59,6 +59,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_cs4ri")
+category = "resource"
 prompt = "We've discovered an alien artifact floating in space!"
 effects = SubResource("Resource_q2oks")
 options = Array[ExtResource("1_00pab")]([SubResource("Resource_2xwbn"), SubResource("Resource_m0lj8"), SubResource("Resource_wmen5")])

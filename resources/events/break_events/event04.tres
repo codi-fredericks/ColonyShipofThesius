@@ -63,6 +63,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_2ivv1")
+category = "broken"
 prompt = "A crewman has devloped Space Madness and has sabotaged the refinery! 
 "
 effects = SubResource("Resource_ofalw")

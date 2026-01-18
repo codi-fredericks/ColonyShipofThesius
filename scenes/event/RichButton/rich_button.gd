@@ -29,5 +29,3 @@ func set_disabled(state: bool) -> void:
 
 func _on_button_pressed() -> void:
 	pressed.emit()
-
-

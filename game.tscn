@@ -1,19 +1,235 @@
-[gd_scene load_steps=12 format=3 uid="uid://e10cthxf2bhx"]
+[gd_scene load_steps=36 format=3 uid="uid://e10cthxf2bhx"]
 
 [ext_resource type="PackedScene" uid="uid://cwk4vn2lpchjv" path="res://scenes/event/event.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://27ibbn5l7kbf" path="res://game.gd" id="1_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://cas6js8sytpq" path="res://scenes/ship_view.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://coct8t17ofqxf" path="res://scenes/stats_bar.tscn" id="4_7jktm"]
+[ext_resource type="Texture2D" uid="uid://xfnwync5ypoc" path="res://resources/stars.tres" id="4_7sc4i"]
 [ext_resource type="Script" uid="uid://boptoolihburo" path="res://scripts/services/ShakeService/screen_shaker.gd" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://b15pxmbaygo3l" path="res://scenes/journey_stops.tscn" id="4_hve3p"]
+[ext_resource type="Script" uid="uid://dg3vktrd0ncvi" path="res://scripts/types/event.gd" id="5_lc2xo"]
+[ext_resource type="Resource" uid="uid://cg5dtdqxqppl4" path="res://resources/events/break_events/event01.tres" id="6_215e1"]
+[ext_resource type="Shader" uid="uid://crwux3oc6xh2k" path="res://scripts/shaders/wet_planet.gdshader" id="6_j5wjh"]
 [ext_resource type="Shader" uid="uid://1drpwxjboc3l" path="res://scripts/shaders/dry_planet.gdshader" id="6_ryrav"]
+[ext_resource type="Resource" uid="uid://dp1i8en1nrrbt" path="res://resources/events/break_events/event05.tres" id="7_7sc4i"]
 [ext_resource type="Script" uid="uid://b4dqr8rn7guvk" path="res://planet.gd" id="7_eow3j"]
 [ext_resource type="Texture2D" uid="uid://cire862kxw5w0" path="res://assets/gfx/Placeholder120.png" id="7_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://calkdfwx12v6c" path="res://assets/gfx/full_ship.png" id="8_215e1"]
+[ext_resource type="Texture2D" uid="uid://b66r4xck0uxdj" path="res://assets/gfx/ship_parts/engines.png" id="12_hb5m1"]
+[ext_resource type="Texture2D" uid="uid://3ecde5vhifep" path="res://assets/gfx/ship_parts/navigation.png" id="13_x5p1p"]
+[ext_resource type="Texture2D" uid="uid://cwg2t61mrpdlt" path="res://assets/gfx/ship_parts/refinery.png" id="14_qhcbd"]
+[ext_resource type="Texture2D" uid="uid://del25my31ixxq" path="res://assets/gfx/ship_parts/Sci.png" id="15_f1jbl"]
+[ext_resource type="Texture2D" uid="uid://cvi6wsrhm4i8o" path="res://assets/gfx/ship_parts/shields.png" id="16_vaj68"]
+[ext_resource type="Texture2D" uid="uid://dlstbgnigoveg" path="res://assets/gfx/ship_parts/weapons.png" id="17_i2p71"]
+[ext_resource type="Shader" uid="uid://dnj7ir0n8daiu" path="res://scripts/shaders/rotate2d_in3d.gdshader" id="21_x5p1p"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_eow3j"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_j5wjh"]
 viewport_path = NodePath("Planet1")
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_feb5d"]
-size = Vector2(50, 140)
+[sub_resource type="ViewportTexture" id="ViewportTexture_lc2xo"]
+viewport_path = NodePath("Planet2")
+
+[sub_resource type="Curve2D" id="Curve2D_7sc4i"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 698, 0)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_5b14r"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_xa8c5"]
+resource_name = "ship_break"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bnpwn"]
+_data = {
+&"RESET": SubResource("Animation_5b14r"),
+&"ship_break": SubResource("Animation_xa8c5")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x5p1p"]
+shader = ExtResource("6_j5wjh")
+shader_parameter/pixels = 100.0
+shader_parameter/rotation = 0.2000000095
+shader_parameter/light_origin = Vector2(0.39, 0.39)
+shader_parameter/time_speed = 0.10000000475
+shader_parameter/dither_size = 3.9510001876725
+shader_parameter/should_dither = true
+shader_parameter/light_border_1 = 0.2870000136325
+shader_parameter/light_border_2 = 0.47600002261
+shader_parameter/river_cutoff = 0.36800001748
+shader_parameter/colors = PackedColorArray(0.388235, 0.670588, 0.247059, 1, 0.231373, 0.490196, 0.309804, 1, 0.184314, 0.341176, 0.32549, 1, 0.156863, 0.207843, 0.25098, 1, 0.309804, 0.643137, 0.721569, 1, 0.25098, 0.286275, 0.45098, 1)
+shader_parameter/size = 4.6
+shader_parameter/OCTAVES = 6
+shader_parameter/seed = 8.98000037905
+shader_parameter/time = 3071.274
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qhcbd"]
+shader = ExtResource("21_x5p1p")
+shader_parameter/isInRadians = false
+shader_parameter/xRadians = 0.0
+shader_parameter/yRadians = 0.0
+shader_parameter/zRadians = 0.0
+shader_parameter/xDegrees = 0.0
+shader_parameter/yDegrees = 49.286002341085
+shader_parameter/zDegrees = 11.5450005483875
+
+[sub_resource type="Animation" id="Animation_vaj68"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ship:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(380, 170)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ship:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ship:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ship:material:shader_parameter/yDegrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [49.286002341085]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ship:material:shader_parameter/zDegrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [11.5450005483875]
+}
+
+[sub_resource type="Animation" id="Animation_f1jbl"]
+resource_name = "landing"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ship:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(380, 170), Vector2(615, 114)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ship:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ship:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ship:material:shader_parameter/yDegrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 1.49),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 49.286002341085]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ship:material:shader_parameter/zDegrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1, 1.49),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 11.5450005483875]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2p71"]
+_data = {
+&"RESET": SubResource("Animation_vaj68"),
+&"landing": SubResource("Animation_f1jbl")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryrav"]
 shader = ExtResource("6_ryrav")
@@ -29,32 +245,44 @@ shader_parameter/n_colors = 5
 shader_parameter/size = 21.38
 shader_parameter/OCTAVES = 3
 shader_parameter/seed = 2.8730000889675003
-shader_parameter/time = 12167.605552815789
+shader_parameter/time = 9885.30467764697
 shader_parameter/should_dither = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vef74"]
+shader = ExtResource("6_j5wjh")
+shader_parameter/pixels = 100.0
+shader_parameter/rotation = 0.2000000095
+shader_parameter/light_origin = Vector2(0.39, 0.39)
+shader_parameter/time_speed = 0.10000000475
+shader_parameter/dither_size = 3.9510001876725
+shader_parameter/should_dither = true
+shader_parameter/light_border_1 = 0.2870000136325
+shader_parameter/light_border_2 = 0.47600002261
+shader_parameter/river_cutoff = 0.36800001748
+shader_parameter/colors = PackedColorArray(0.388235, 0.670588, 0.247059, 1, 0.231373, 0.490196, 0.309804, 1, 0.184314, 0.341176, 0.32549, 1, 0.156863, 0.207843, 0.25098, 1, 0.309804, 0.643137, 0.721569, 1, 0.25098, 0.286275, 0.45098, 1)
+shader_parameter/size = 4.6
+shader_parameter/OCTAVES = 6
+shader_parameter/seed = 8.98000037905
+shader_parameter/time = 2353.643970868326
 
 [node name="WindowRoot" type="Node2D"]
 
-[node name="Game" type="Node2D" parent="." node_paths=PackedStringArray("screen_shaker", "control_root") groups=["game"]]
+[node name="Game" type="Node2D" parent="." node_paths=PackedStringArray("screen_shaker", "control_root", "event") groups=["game"]]
 position = Vector2(480, 270)
 script = ExtResource("1_e2o6t")
 screen_shaker = NodePath("ScreenShaker")
 control_root = NodePath("OuterMargin")
+event = NodePath("OuterMargin/Contents/Event")
 
 [node name="OuterMargin" type="MarginContainer" parent="Game"]
 custom_minimum_size = Vector2(960, 540)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -480.0
-offset_top = -270.0
-offset_right = 480.0
-offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Contents" type="VBoxContainer" parent="Game/OuterMargin"]
 layout_mode = 2
@@ -62,7 +290,6 @@ layout_mode = 2
 [node name="Event" parent="Game/OuterMargin/Contents" instance=ExtResource("1_80nbo")]
 layout_mode = 2
 size_flags_vertical = 3
-theme = null
 
 [node name="UIContainer" type="HBoxContainer" parent="Game/OuterMargin/Contents"]
 custom_minimum_size = Vector2(0, 175)
@@ -76,73 +303,88 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="StarChart" type="HBoxContainer" parent="Game/OuterMargin/Contents/UIContainer/Status"]
+[node name="Control" type="Control" parent="Game/OuterMargin/Contents/UIContainer/Status"]
+custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="TextureRect" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_7sc4i")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="StarChart" type="HBoxContainer" parent="Game/OuterMargin/Contents/UIContainer/Status/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="start" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/Control/StarChart"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-texture = SubResource("ViewportTexture_eow3j")
+texture = SubResource("ViewportTexture_j5wjh")
 stretch_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="JourneyStops" parent="Game/OuterMargin/Contents/UIContainer/Status/Control/StarChart" instance=ExtResource("4_hve3p")]
+unique_name_in_owner = true
+clip_contents = true
 layout_mode = 2
-size_flags_horizontal = 6
-texture = SubResource("PlaceholderTexture2D_feb5d")
-stretch_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+stops = Array[ExtResource("5_lc2xo")]([ExtResource("6_215e1"), ExtResource("7_7sc4i"), ExtResource("7_7sc4i"), ExtResource("7_7sc4i"), ExtResource("7_7sc4i"), ExtResource("7_7sc4i"), ExtResource("7_7sc4i"), ExtResource("7_7sc4i"), ExtResource("7_7sc4i"), ExtResource("7_7sc4i")])
+search_ahead = 0
 
-[node name="TextureRect3" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
-layout_mode = 2
-size_flags_horizontal = 6
-texture = SubResource("PlaceholderTexture2D_feb5d")
-stretch_mode = 2
-
-[node name="TextureRect4" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
-layout_mode = 2
-size_flags_horizontal = 6
-texture = SubResource("PlaceholderTexture2D_feb5d")
-stretch_mode = 2
-
-[node name="TextureRect5" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
-layout_mode = 2
-size_flags_horizontal = 6
-texture = SubResource("PlaceholderTexture2D_feb5d")
-stretch_mode = 2
-
-[node name="TextureRect6" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
-layout_mode = 2
-size_flags_horizontal = 6
-texture = SubResource("PlaceholderTexture2D_feb5d")
-stretch_mode = 2
-
-[node name="TextureRect7" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
-layout_mode = 2
-size_flags_horizontal = 6
-texture = SubResource("PlaceholderTexture2D_feb5d")
-stretch_mode = 2
-
-[node name="TextureRect8" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
-layout_mode = 2
-size_flags_horizontal = 6
-texture = SubResource("PlaceholderTexture2D_feb5d")
-stretch_mode = 2
-
-[node name="TextureRect9" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
-layout_mode = 2
-size_flags_horizontal = 6
-texture = SubResource("PlaceholderTexture2D_feb5d")
-stretch_mode = 2
-
-[node name="TextureRect10" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/StarChart"]
+[node name="end" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/Control/StarChart"]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-texture = SubResource("PlaceholderTexture2D_feb5d")
+texture = SubResource("ViewportTexture_lc2xo")
 stretch_mode = 2
+
+[node name="ship_pos" type="Path2D" parent="Game/OuterMargin/Contents/UIContainer/Status/Control"]
+position = Vector2(25, 70)
+curve = SubResource("Curve2D_7sc4i")
+
+[node name="ship_token" type="PathFollow2D" parent="Game/OuterMargin/Contents/UIContainer/Status/Control/ship_pos"]
+unique_name_in_owner = true
+loop = false
+
+[node name="TextureRect" type="TextureRect" parent="Game/OuterMargin/Contents/UIContainer/Status/Control/ship_pos/ship_token"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.5
+offset_top = -12.5
+offset_right = 12.5
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(25, 25)
+texture = ExtResource("8_215e1")
+expand_mode = 1
 
 [node name="StatsBar" parent="Game/OuterMargin/Contents/UIContainer/Status" instance=ExtResource("4_7jktm")]
 layout_mode = 2
 theme = null
+
+[node name="blocker" type="ColorRect" parent="Game"]
+offset_left = -480.0
+offset_top = -272.0
+offset_right = 480.0
+offset_bottom = 64.0
+color = Color(1, 1, 1, 0)
 
 [node name="ScreenShaker" type="Camera2D" parent="Game" node_paths=PackedStringArray("target") groups=["camera"]]
 script = ExtResource("4_fc0e3")
@@ -152,7 +394,305 @@ shake_time = 0.5
 shake_decay = 0.07
 camera_recover_rate = 5.0
 
+[node name="lose" type="Control" parent="Game"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -480.0
+offset_top = -268.0
+offset_right = 480.0
+offset_bottom = 272.0
+
+[node name="backdrop" type="TextureRect" parent="Game/lose"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_7sc4i")
+
+[node name="TextureRect" type="TextureRect" parent="Game/lose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.00659
+offset_bottom = 100.004364
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_hb5m1")
+
+[node name="TextureRect2" type="TextureRect" parent="Game/lose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.00037
+offset_bottom = 100.00098
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_x5p1p")
+
+[node name="TextureRect3" type="TextureRect" parent="Game/lose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.00635
+offset_bottom = 100.00256
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_qhcbd")
+
+[node name="TextureRect4" type="TextureRect" parent="Game/lose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.001465
+offset_bottom = 100.00421
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_f1jbl")
+
+[node name="TextureRect5" type="TextureRect" parent="Game/lose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.002075
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_vaj68")
+
+[node name="TextureRect6" type="TextureRect" parent="Game/lose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.00012
+offset_bottom = 100.00134
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_i2p71")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/lose"]
+libraries = {
+&"": SubResource("AnimationLibrary_bnpwn")
+}
+speed_scale = 0.01
+
+[node name="ColorRect" type="ColorRect" parent="Game/lose"]
+custom_minimum_size = Vector2(310, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.5
+offset_top = -174.0
+offset_right = 155.5
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.34407577, 0.34407574, 0.34407574, 1)
+
+[node name="Label" type="Label" parent="Game/lose/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -24.5
+offset_right = 140.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Lose
+All parts completely failed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Game/lose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = 123.0
+offset_right = 195.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="replay" type="Button" parent="Game/lose/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Replay"
+
+[node name="main_menu" type="Button" parent="Game/lose/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Main Menu"
+
+[node name="win" type="Control" parent="Game"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -480.0
+offset_top = -268.0
+offset_right = 480.0
+offset_bottom = 272.0
+
+[node name="backdrop" type="TextureRect" parent="Game/win"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_7sc4i")
+
+[node name="Control" type="Control" parent="Game/win"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 221.0
+offset_top = -13.0
+offset_right = 221.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/win/Control"]
+material = SubResource("ShaderMaterial_x5p1p")
+texture = ExtResource("7_j5wjh")
+
+[node name="ship" type="TextureRect" parent="Game/win"]
+material = SubResource("ShaderMaterial_qhcbd")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.00003
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+texture = ExtResource("8_215e1")
+
+[node name="ColorRect" type="ColorRect" parent="Game/win"]
+custom_minimum_size = Vector2(310, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -449.0
+offset_top = -51.0
+offset_right = -33.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.34407577, 0.34407574, 0.34407574, 1)
+
+[node name="text_good" type="Label" parent="Game/win/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Win
+Well done on getting us here safely"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="text_bad" type="Label" parent="Game/win/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Lose
+Well done on getting us here safely
+but you have no original parts left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Game/win"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -437.0
+offset_top = 123.0
+offset_right = -47.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="replay" type="Button" parent="Game/win/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Replay"
+
+[node name="main_menu" type="Button" parent="Game/win/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Main Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/win"]
+libraries = {
+&"": SubResource("AnimationLibrary_i2p71")
+}
+
 [node name="Planet1" type="SubViewport" parent="."]
+transparent_bg = true
 size = Vector2i(60, 120)
 render_target_update_mode = 4
 
@@ -161,3 +701,19 @@ material = SubResource("ShaderMaterial_ryrav")
 texture = ExtResource("7_j5wjh")
 offset = Vector2(-17, 60)
 script = ExtResource("7_eow3j")
+
+[node name="Planet2" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(60, 120)
+render_target_update_mode = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Planet2"]
+material = SubResource("ShaderMaterial_vef74")
+texture = ExtResource("7_j5wjh")
+offset = Vector2(77, 60)
+script = ExtResource("7_eow3j")
+
+[connection signal="pressed" from="Game/lose/HBoxContainer/replay" to="Game" method="_on_replay_pressed"]
+[connection signal="pressed" from="Game/lose/HBoxContainer/main_menu" to="Game" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Game/win/HBoxContainer/replay" to="Game" method="_on_replay_pressed"]
+[connection signal="pressed" from="Game/win/HBoxContainer/main_menu" to="Game" method="_on_main_menu_pressed"]

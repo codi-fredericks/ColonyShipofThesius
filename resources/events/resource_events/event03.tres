@@ -41,6 +41,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_r12nj")
+category = "resource"
 prompt = "We've discovered an alien satelite with enhanced sensors!"
 effects = SubResource("Resource_472eg")
 options = Array[ExtResource("1_dtg5y")]([SubResource("Resource_yxag1"), SubResource("Resource_8q26c")])

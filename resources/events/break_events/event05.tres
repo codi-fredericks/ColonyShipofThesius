@@ -65,6 +65,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_6ff7n")
+category = "broken"
 prompt = "We've detected an anomaly in space that appears to be causing wild fluctuations in the hull integrity field of our shields, we must repair it before we lose Shields altogether
 "
 effects = SubResource("Resource_8frak")

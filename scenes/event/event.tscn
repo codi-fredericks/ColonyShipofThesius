@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwk4vn2lpchjv"]
+[gd_scene load_steps=8 format=3 uid="uid://cwk4vn2lpchjv"]
 
 [ext_resource type="Script" uid="uid://bcihqyyrqg6jy" path="res://scenes/event/event_scene.gd" id="1_jtw3a"]
 [ext_resource type="Theme" uid="uid://xejno4b30eo0" path="res://resources/theme.tres" id="1_uuxf3"]
@@ -7,33 +7,97 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y32ns"]
 size = Vector2(200, 200)
 
-[node name="Event" type="VBoxContainer" node_paths=PackedStringArray("prompt_textbox", "button_container", "overflow_button_container", "event_image")]
+[sub_resource type="Animation" id="Animation_wfxja"]
+resource_name = "warning"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.8), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lry0m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lry0m"]
+_data = {
+&"RESET": SubResource("Animation_lry0m"),
+&"warning": SubResource("Animation_wfxja")
+}
+
+[node name="Control" type="Control" node_paths=PackedStringArray("prompt_textbox", "button_container", "overflow_button_container", "event_image")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jtw3a")
+prompt_textbox = NodePath("Event/HBoxContainer/Prompt")
+button_container = NodePath("Event/ButtonMatrix/Buttons")
+overflow_button_container = NodePath("Event/ButtonMatrix/OverflowButtons")
+event_image = NodePath("Event/HBoxContainer/Event_Picture")
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.93333334, 0, 0, 0.7019608)
+
+[node name="Event" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_uuxf3")
-script = ExtResource("1_jtw3a")
-prompt_textbox = NodePath("HBoxContainer/Prompt")
-button_container = NodePath("ButtonMatrix/Buttons")
-overflow_button_container = NodePath("ButtonMatrix/OverflowButtons")
-event_image = NodePath("HBoxContainer/Event_Picture")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="Event"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme_override_constants/separation = 16
 
-[node name="Event_Picture" type="TextureRect" parent="HBoxContainer"]
+[node name="Event_Picture" type="TextureRect" parent="Event/HBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_vertical = 4
 texture = SubResource("PlaceholderTexture2D_y32ns")
 stretch_mode = 2
 
-[node name="Prompt" type="RichTextLabel" parent="HBoxContainer"]
+[node name="Prompt" type="RichTextLabel" parent="Event/HBoxContainer"]
 custom_minimum_size = Vector2(700, 200)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -43,33 +107,39 @@ autowrap_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonMatrix" type="HBoxContainer" parent="."]
+[node name="ButtonMatrix" type="HBoxContainer" parent="Event"]
 layout_mode = 2
 alignment = 1
 
-[node name="Buttons" type="VBoxContainer" parent="ButtonMatrix"]
+[node name="Buttons" type="VBoxContainer" parent="Event/ButtonMatrix"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="RichButton" parent="ButtonMatrix/Buttons" instance=ExtResource("3_wfxja")]
+[node name="RichButton" parent="Event/ButtonMatrix/Buttons" instance=ExtResource("3_wfxja")]
 layout_mode = 2
 
-[node name="RichButton2" parent="ButtonMatrix/Buttons" instance=ExtResource("3_wfxja")]
+[node name="RichButton2" parent="Event/ButtonMatrix/Buttons" instance=ExtResource("3_wfxja")]
 layout_mode = 2
 
-[node name="RichButton3" parent="ButtonMatrix/Buttons" instance=ExtResource("3_wfxja")]
+[node name="RichButton3" parent="Event/ButtonMatrix/Buttons" instance=ExtResource("3_wfxja")]
 layout_mode = 2
 
-[node name="OverflowButtons" type="VBoxContainer" parent="ButtonMatrix"]
+[node name="OverflowButtons" type="VBoxContainer" parent="Event/ButtonMatrix"]
 visible = false
 layout_mode = 2
 
-[node name="RichButton" parent="ButtonMatrix/OverflowButtons" instance=ExtResource("3_wfxja")]
+[node name="RichButton" parent="Event/ButtonMatrix/OverflowButtons" instance=ExtResource("3_wfxja")]
 layout_mode = 2
 
-[node name="RichButton2" parent="ButtonMatrix/OverflowButtons" instance=ExtResource("3_wfxja")]
+[node name="RichButton2" parent="Event/ButtonMatrix/OverflowButtons" instance=ExtResource("3_wfxja")]
 layout_mode = 2
 
-[node name="RichButton3" parent="ButtonMatrix/OverflowButtons" instance=ExtResource("3_wfxja")]
+[node name="RichButton3" parent="Event/ButtonMatrix/OverflowButtons" instance=ExtResource("3_wfxja")]
 layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lry0m")
+}
+speed_scale = 0.5

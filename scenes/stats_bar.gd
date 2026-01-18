@@ -29,6 +29,8 @@ func _update_system(system: String) -> void:
 
 	if not ship.is_original(system):
 		system_node.push_color(ColorManager.get_refurbished_color())
+	if system_value <= 0:
+		system_node.push_color(ColorManager.get_system_color(0))
 
 	system_node.append_text(Constants.ABBREVIATIONS[system])
 	system_node.pop_all()

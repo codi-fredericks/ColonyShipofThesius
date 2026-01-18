@@ -61,6 +61,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_kj63l")
+category = "broken"
 prompt = "An explosion in the hydroponics lab has resulted in a fire in science! We can make repairs if we repurpose another system"
 effects = SubResource("Resource_acy6o")
 sfx = &"explosion"

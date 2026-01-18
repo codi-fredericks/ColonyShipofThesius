@@ -65,6 +65,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("3_7uit4")
+category = "broken"
 prompt = "An asteroid has been missed by our asteroid defense array, clipping our hull and causing damage to the Engines
 "
 effects = SubResource("Resource_uhr4c")

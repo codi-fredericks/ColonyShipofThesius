@@ -60,6 +60,7 @@ metadata/_custom_type_script = "uid://c10s4eou115bk"
 
 [resource]
 script = ExtResource("2_sml63")
+category = "broken"
 prompt = "There's been a breach in the FTL drive!"
 effects = SubResource("Resource_baemv")
 options = Array[ExtResource("1_c3gcf")]([SubResource("Resource_adqi1"), SubResource("Resource_tiumo"), SubResource("Resource_6tg0d")])
