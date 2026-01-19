@@ -43,7 +43,7 @@ func _ready() -> void:
 	%ship_token.progress_ratio = ((1.0/float(Global.game_stops+1)) * float(trip_step))
 
 func remove_empty(value) -> bool:
-	if value == []:
+	if value == [] or value == null:
 		return false
 	return true
 
@@ -51,14 +51,14 @@ func generate_trip() -> void:
 	trip = []
 	trip.append(load("res://resources/events/start.tres"))
 	for i in range(Global.game_stops):
-		if i == 4:
+		if i == 4 and Global.game_event_resource:
 			add_stop(resource_events)
 		else:
 			add_stop([break_events, resource_events, route_events].filter(remove_empty).pick_random())
 
 func add_event_stop(count: int) -> void:
 	for i in range(count):
-		add_stop([break_events, resource_events].pick_random())
+		add_stop([break_events, resource_events].filter(remove_empty).pick_random())
 
 func remove_event_stop(count: int) -> void:
 	for i in range(count):
@@ -66,6 +66,8 @@ func remove_event_stop(count: int) -> void:
 
 func add_stop(event_array: Array[Event]) -> void:
 	var stop: Event = event_array.pick_random()
+	if stop == null:
+		push_error("NULL EVENT")
 	trip.append(stop)
 	event_array.erase(stop)
 

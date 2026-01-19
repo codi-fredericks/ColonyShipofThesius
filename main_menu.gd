@@ -61,6 +61,7 @@ func _on_option_button_item_selected(index: int) -> void:
 			update_config(Constants.GAMEMODE_PRESETS["hard"])
 			%block.show()
 		3:
+			update_config(Constants.GAMEMODE_PRESETS["custom"])
 			%block.hide()
 
 

@@ -36,7 +36,8 @@ const ICONS: Dictionary[String,String] = {
 const GAMEMODE_PRESETS: Dictionary[String,GameModePreset] = {
 	"easy":preload("res://resources/gamemodes/easy.tres"),
 	"medium":preload("res://resources/gamemodes/medium.tres"),
-	"hard":preload("res://resources/gamemodes/hard.tres")
+	"hard":preload("res://resources/gamemodes/hard.tres"),
+	"custom":preload("res://resources/gamemodes/custom.tres")
 }
 
 const INITIAL_TRIP_LENGTH: int = 10

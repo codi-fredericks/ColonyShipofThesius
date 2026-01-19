@@ -245,7 +245,7 @@ shader_parameter/n_colors = 5
 shader_parameter/size = 21.38
 shader_parameter/OCTAVES = 3
 shader_parameter/seed = 2.8730000889675003
-shader_parameter/time = 9885.30467764697
+shader_parameter/time = 15859.63766048131
 shader_parameter/should_dither = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vef74"]
@@ -263,7 +263,7 @@ shader_parameter/colors = PackedColorArray(0.388235, 0.670588, 0.247059, 1, 0.23
 shader_parameter/size = 4.6
 shader_parameter/OCTAVES = 6
 shader_parameter/seed = 8.98000037905
-shader_parameter/time = 2353.643970868326
+shader_parameter/time = 3776.1042048765025
 
 [node name="WindowRoot" type="Node2D"]
 

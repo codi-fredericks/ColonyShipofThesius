@@ -29,7 +29,7 @@ shader_parameter/n_colors = 5
 shader_parameter/size = 21.38
 shader_parameter/OCTAVES = 3
 shader_parameter/seed = 2.8730000889675003
-shader_parameter/time = 26208.816850665386
+shader_parameter/time = 37475.64439175766
 shader_parameter/should_dither = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j5v2v"]
@@ -47,7 +47,7 @@ shader_parameter/colors = PackedColorArray(0.388235, 0.670588, 0.247059, 1, 0.23
 shader_parameter/size = 4.6
 shader_parameter/OCTAVES = 6
 shader_parameter/seed = 5.010000190475
-shader_parameter/time = 6240.194488253663
+shader_parameter/time = 8922.772474228015
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7bbuq"]
 viewport_path = NodePath("background/planet/Planet1")

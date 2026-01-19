@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_pkdtc")
 break_events = true
+resource_events = true
 route_events = true
 stops = 15
 metadata/_custom_type_script = "uid://dlkt1x65p37fg"
